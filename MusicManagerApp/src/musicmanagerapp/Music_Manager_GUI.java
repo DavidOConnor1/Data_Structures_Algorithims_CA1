@@ -117,7 +117,7 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
         GenreLabel.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
         GenreLabel.setText("*Genre:");
 
-        genreComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pop", "Rap", "Indie", "Rock", " " }));
+        genreComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pop", "Rap", "Indie", "Rock" }));
 
         addSongBTN.setText("Add Song");
 
