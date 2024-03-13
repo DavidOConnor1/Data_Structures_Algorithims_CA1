@@ -15,6 +15,10 @@ public class MusicManagerApp {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        Music_Manager_GUI load = new Music_Manager_GUI();
+        load.setVisible(true);
+        
     }
     
 }
