@@ -60,6 +60,9 @@ public class SongSchema implements Serializable {
         this.genre = genre;
     }
     
+    public String songDetails(){
+        return songName+"\t"+artist+"\t"+album+"\t"+genre+"\n";
+    }
     
     
     

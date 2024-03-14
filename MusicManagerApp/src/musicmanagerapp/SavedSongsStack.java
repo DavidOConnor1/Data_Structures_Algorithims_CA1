@@ -38,6 +38,8 @@ public class SavedSongsStack implements SongStackInterface {
       
        if(!likePlaylist.contains(newSong)){
            likePlaylist.add(0, newSong);
+           System.out.println("The song has successfully has been added");
+           System.out.println("this is ur song that u added");
        } 
         } catch(Exception ex){
             JOptionPane.showMessageDialog(null, ex);
@@ -66,7 +68,7 @@ public class SavedSongsStack implements SongStackInterface {
             JOptionPane.showMessageDialog(null, "The liked songs playlist is empty");
             return null;
         } else {
-            return likePlaylist.get(0);
+            return likePlaylist.get(0).songDetails();
         }
     }
     
@@ -88,7 +90,8 @@ public class SavedSongsStack implements SongStackInterface {
             JOptionPane.showMessageDialog(null, str);
         } else {
             for (int i = 0; i < likePlaylist.size(); i++) {
-                str = str.concat(likePlaylist.get(i).toString());
+                SongSchema load = likePlaylist.get(i);
+                str = str.concat(load.songDetails());
                 str = str.concat("\n");
             }
         }
