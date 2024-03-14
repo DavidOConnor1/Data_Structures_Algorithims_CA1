@@ -17,9 +17,13 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
     
     SongSchema newSong;
     
+    SongStackInterface test;
+    
     public Music_Manager_GUI() {
         initComponents();
         newSong = new SongSchema();
+        test = new SavedSongsStack();
+        
     }
     
    SongStackInterface loadFunctions = new SavedSongsStack();
@@ -36,10 +40,10 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
 
         border = new javax.swing.JPanel();
         body = new javax.swing.JPanel();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        tabbedPane = new javax.swing.JTabbedPane();
         homePanel = new javax.swing.JPanel();
-        jLayeredPane1 = new javax.swing.JLayeredPane();
-        jPanel2 = new javax.swing.JPanel();
+        layeredHeadPane = new javax.swing.JLayeredPane();
+        HeaderPane = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         HomeLabel = new javax.swing.JLabel();
         songNameLabel = new javax.swing.JLabel();
@@ -51,7 +55,16 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
         GenreLabel = new javax.swing.JLabel();
         genreComboBox = new javax.swing.JComboBox<>();
         addSongBTN = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
+        LikedSongPlaylistPanel = new javax.swing.JPanel();
+        HeaderPane1 = new javax.swing.JPanel();
+        LikeLogo = new javax.swing.JLabel();
+        LikedSongsLabel = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        displayLikedSongsArea = new javax.swing.JTextArea();
+        searchTF = new javax.swing.JTextField();
+        searchBTN = new javax.swing.JButton();
+        deleteBTN = new javax.swing.JButton();
+        addToPlaylistBTN = new javax.swing.JButton();
         StringifyLogo = new javax.swing.JLabel();
         HeadingText = new javax.swing.JLabel();
 
@@ -61,9 +74,9 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
 
         body.setBackground(new java.awt.Color(0, 0, 0));
 
-        jLayeredPane1.setBackground(new java.awt.Color(153, 204, 255));
+        layeredHeadPane.setBackground(new java.awt.Color(153, 204, 255));
 
-        jPanel2.setBackground(new java.awt.Color(0, 204, 204));
+        HeaderPane.setBackground(new java.awt.Color(0, 204, 204));
 
         jLabel1.setBackground(new java.awt.Color(153, 204, 255));
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -72,39 +85,39 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
         HomeLabel.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 20)); // NOI18N
         HomeLabel.setText("Home |   Add Your Favorite Songs             ");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout HeaderPaneLayout = new javax.swing.GroupLayout(HeaderPane);
+        HeaderPane.setLayout(HeaderPaneLayout);
+        HeaderPaneLayout.setHorizontalGroup(
+            HeaderPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(HeaderPaneLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(HomeLabel)
                 .addContainerGap(62, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        HeaderPaneLayout.setVerticalGroup(
+            HeaderPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(HeaderPaneLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(HeaderPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(HomeLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
-        jLayeredPane1.setLayer(jPanel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        layeredHeadPane.setLayer(HeaderPane, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
-        jLayeredPane1.setLayout(jLayeredPane1Layout);
-        jLayeredPane1Layout.setHorizontalGroup(
-            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        javax.swing.GroupLayout layeredHeadPaneLayout = new javax.swing.GroupLayout(layeredHeadPane);
+        layeredHeadPane.setLayout(layeredHeadPaneLayout);
+        layeredHeadPaneLayout.setHorizontalGroup(
+            layeredHeadPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(HeaderPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        jLayeredPane1Layout.setVerticalGroup(
-            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
+        layeredHeadPaneLayout.setVerticalGroup(
+            layeredHeadPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layeredHeadPaneLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(HeaderPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         songNameLabel.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
@@ -154,7 +167,7 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
         homePanel.setLayout(homePanelLayout);
         homePanelLayout.setHorizontalGroup(
             homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLayeredPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(layeredHeadPane, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(homePanelLayout.createSequentialGroup()
                 .addGroup(homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(homePanelLayout.createSequentialGroup()
@@ -178,7 +191,7 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
         homePanelLayout.setVerticalGroup(
             homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(homePanelLayout.createSequentialGroup()
-                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(layeredHeadPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(58, 58, 58)
                 .addGroup(homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(songNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -200,20 +213,99 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
                 .addGap(45, 45, 45))
         );
 
-        jTabbedPane1.addTab("Home", homePanel);
+        tabbedPane.addTab("Home", homePanel);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 491, Short.MAX_VALUE)
+        HeaderPane1.setBackground(new java.awt.Color(0, 204, 204));
+
+        LikeLogo.setBackground(new java.awt.Color(153, 204, 255));
+        LikeLogo.setForeground(new java.awt.Color(255, 255, 255));
+        LikeLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LikeLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/loveHeartLogo.png"))); // NOI18N
+
+        LikedSongsLabel.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 20)); // NOI18N
+        LikedSongsLabel.setText("Liked Songs |   View all of your favourite Songs ");
+
+        javax.swing.GroupLayout HeaderPane1Layout = new javax.swing.GroupLayout(HeaderPane1);
+        HeaderPane1.setLayout(HeaderPane1Layout);
+        HeaderPane1Layout.setHorizontalGroup(
+            HeaderPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(HeaderPane1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(LikeLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(LikedSongsLabel)
+                .addContainerGap(10, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 427, Short.MAX_VALUE)
+        HeaderPane1Layout.setVerticalGroup(
+            HeaderPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(HeaderPane1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(HeaderPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(LikeLogo, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(LikedSongsLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
-        jTabbedPane1.addTab("Liked Songs", jPanel1);
+        displayLikedSongsArea.setColumns(20);
+        displayLikedSongsArea.setRows(5);
+        displayLikedSongsArea.setText("Title \t Artist \t Album \t Genre \n");
+        jScrollPane1.setViewportView(displayLikedSongsArea);
+
+        searchBTN.setText("search");
+        searchBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchBTNActionPerformed(evt);
+            }
+        });
+
+        deleteBTN.setText("delete");
+
+        addToPlaylistBTN.setText("...");
+        addToPlaylistBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addToPlaylistBTNActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout LikedSongPlaylistPanelLayout = new javax.swing.GroupLayout(LikedSongPlaylistPanel);
+        LikedSongPlaylistPanel.setLayout(LikedSongPlaylistPanelLayout);
+        LikedSongPlaylistPanelLayout.setHorizontalGroup(
+            LikedSongPlaylistPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(HeaderPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(LikedSongPlaylistPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(LikedSongPlaylistPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(LikedSongPlaylistPanelLayout.createSequentialGroup()
+                        .addComponent(searchTF, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(searchBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(deleteBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(addToPlaylistBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        LikedSongPlaylistPanelLayout.setVerticalGroup(
+            LikedSongPlaylistPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(LikedSongPlaylistPanelLayout.createSequentialGroup()
+                .addComponent(HeaderPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(LikedSongPlaylistPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(LikedSongPlaylistPanelLayout.createSequentialGroup()
+                        .addGroup(LikedSongPlaylistPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(searchTF, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(searchBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(deleteBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE))
+                    .addGroup(LikedSongPlaylistPanelLayout.createSequentialGroup()
+                        .addComponent(addToPlaylistBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        tabbedPane.addTab("Liked Songs", LikedSongPlaylistPanel);
 
         StringifyLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/Stringify.png"))); // NOI18N
 
@@ -226,7 +318,7 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
         body.setLayout(bodyLayout);
         bodyLayout.setHorizontalGroup(
             bodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(tabbedPane, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(bodyLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(StringifyLogo)
@@ -242,7 +334,7 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
                     .addComponent(StringifyLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(HeadingText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, Short.MAX_VALUE)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -295,6 +387,15 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_albumNameTFActionPerformed
 
+    private void addToPlaylistBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToPlaylistBTNActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addToPlaylistBTNActionPerformed
+
+    private void searchBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBTNActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_searchBTNActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -321,35 +422,45 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Music_Manager_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Music_Manager_GUI().setVisible(true);
+                
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel GenreLabel;
+    private javax.swing.JPanel HeaderPane;
+    private javax.swing.JPanel HeaderPane1;
     private javax.swing.JLabel HeadingText;
     private javax.swing.JLabel HomeLabel;
+    private javax.swing.JLabel LikeLogo;
+    private static javax.swing.JPanel LikedSongPlaylistPanel;
+    private javax.swing.JLabel LikedSongsLabel;
     private javax.swing.JLabel StringifyLogo;
     private javax.swing.JButton addSongBTN;
+    private javax.swing.JButton addToPlaylistBTN;
     private javax.swing.JLabel albumNameLabel;
     public static javax.swing.JTextField albumNameTF;
     private javax.swing.JLabel artistNameLabel;
     public static javax.swing.JTextField artistNameTF;
     private javax.swing.JPanel body;
     private javax.swing.JPanel border;
+    private javax.swing.JButton deleteBTN;
+    public static javax.swing.JTextArea displayLikedSongsArea;
     public static javax.swing.JComboBox<String> genreComboBox;
     private javax.swing.JPanel homePanel;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLayeredPane jLayeredPane1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLayeredPane layeredHeadPane;
+    private javax.swing.JButton searchBTN;
+    public static javax.swing.JTextField searchTF;
     private javax.swing.JLabel songNameLabel;
     public static javax.swing.JTextField songNameTF;
+    private javax.swing.JTabbedPane tabbedPane;
     // End of variables declaration//GEN-END:variables
 }
