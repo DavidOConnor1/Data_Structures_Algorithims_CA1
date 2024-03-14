@@ -13,10 +13,18 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
     /**
      * Creates new form Music_Manager_GUI
      */
+    
+    
+    SongSchema newSong;
+    
     public Music_Manager_GUI() {
         initComponents();
+        newSong = new SongSchema();
     }
-
+    
+   SongStackInterface loadFunctions = new SavedSongsStack();
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -103,24 +111,44 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
         songNameLabel.setText("*Song Name:");
 
         songNameTF.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
+        songNameTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                songNameTFActionPerformed(evt);
+            }
+        });
 
         artistNameLabel.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
         artistNameLabel.setText("*Artist Name:");
 
         artistNameTF.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
+        artistNameTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                artistNameTFActionPerformed(evt);
+            }
+        });
 
         albumNameLabel.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
         albumNameLabel.setText("Album Name:");
 
         albumNameTF.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
+        albumNameTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                albumNameTFActionPerformed(evt);
+            }
+        });
 
         GenreLabel.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
         GenreLabel.setText("*Genre:");
 
-        genreComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pop", "Rap", "Indie", "Rock" }));
+        genreComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pop/Rap", "Indie/Rock" }));
 
         addSongBTN.setText("Add Song");
         addSongBTN.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        addSongBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addSongBTNActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout homePanelLayout = new javax.swing.GroupLayout(homePanel);
         homePanel.setLayout(homePanelLayout);
@@ -249,6 +277,24 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void addSongBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addSongBTNActionPerformed
+        // TODO add your handling code here:
+        loadFunctions.push(newSong);
+          
+    }//GEN-LAST:event_addSongBTNActionPerformed
+
+    private void songNameTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_songNameTFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_songNameTFActionPerformed
+
+    private void artistNameTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_artistNameTFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_artistNameTFActionPerformed
+
+    private void albumNameTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_albumNameTFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_albumNameTFActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -291,12 +337,12 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
     private javax.swing.JLabel StringifyLogo;
     private javax.swing.JButton addSongBTN;
     private javax.swing.JLabel albumNameLabel;
-    private javax.swing.JTextField albumNameTF;
+    public static javax.swing.JTextField albumNameTF;
     private javax.swing.JLabel artistNameLabel;
-    private javax.swing.JTextField artistNameTF;
+    public static javax.swing.JTextField artistNameTF;
     private javax.swing.JPanel body;
     private javax.swing.JPanel border;
-    private javax.swing.JComboBox<String> genreComboBox;
+    public static javax.swing.JComboBox<String> genreComboBox;
     private javax.swing.JPanel homePanel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLayeredPane jLayeredPane1;
@@ -304,6 +350,6 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel songNameLabel;
-    private javax.swing.JTextField songNameTF;
+    public static javax.swing.JTextField songNameTF;
     // End of variables declaration//GEN-END:variables
 }
