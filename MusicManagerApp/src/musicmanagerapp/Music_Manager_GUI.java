@@ -120,6 +120,7 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
         genreComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pop", "Rap", "Indie", "Rock" }));
 
         addSongBTN.setText("Add Song");
+        addSongBTN.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         javax.swing.GroupLayout homePanelLayout = new javax.swing.GroupLayout(homePanel);
         homePanel.setLayout(homePanelLayout);
