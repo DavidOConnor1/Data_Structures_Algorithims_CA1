@@ -17,5 +17,6 @@ public interface SongStackInterface {
     public boolean isEmpty();
     public int size();
     public String displayLikedSongs();
+    public void search();
     
 }

@@ -6,6 +6,7 @@ package musicmanagerapp;
 
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import javax.swing.JOptionPane;
 
 /**
@@ -107,24 +108,31 @@ public class SavedSongsStack implements SongStackInterface {
         return str; //returns the str to be displayed within the terminal
     }
     
+    @Override
     public void search()
     {
+        try{
         String str = new String();
-        
+        String searchIndex = Music_Manager_GUI.searchTF.getText();
+        boolean found = false;
         if (isEmpty()) {
-            str = str.concat("There is no Liked songs to be searched right now \n Add your favorite songs on home page!");
+            str = str.concat("There is no Liked songs to be searched right now \n Add your favorite songs on the home page!");
             JOptionPane.showMessageDialog(null, str);
         } else {
-            for (int i = 0; i <likePlaylist.size(); i++) 
-            { //open for loop
-                int index = likePlaylist.indexOf(likePlaylist.get(i));
-                    if (Music_Manager_GUI.searchTF.getText().equals(index)) {
-                        SongSchema load = likePlaylist.get(index);
-                        System.out.println(load.songDetails());
-                    }
-                
-                
-            } //close for loop
+           for(SongSchema song : likePlaylist){ // song will take on the current element in the array, will stop having to loop through the indexs
+               if(song.getSongName().equals(searchIndex)){
+                   
+                   Music_Manager_GUI.displayLikedSongsArea.setText("");
+                   Music_Manager_GUI.displayLikedSongsArea.setText("Title \t Artist \t Album \t Genre \n");
+                   Music_Manager_GUI.displayLikedSongsArea.append(song.songDetails());
+
+                   found = true;
+                   break; //ends the loop
+               } 
+           }
         }//close search function
+        } catch(Exception ex){
+            System.out.println("There is an error"+ex);
+        }
     }
 }

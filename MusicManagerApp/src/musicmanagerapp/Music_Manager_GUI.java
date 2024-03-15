@@ -22,11 +22,11 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
     public Music_Manager_GUI() {
         initComponents();
         newSong = new SongSchema();
-        test = new SavedSongsStack();
+        loadFunctions = new SavedSongsStack();
         
     }
     
-   SongStackInterface loadFunctions = new SavedSongsStack();
+   SongStackInterface loadFunctions;
     
     
     /**
@@ -63,8 +63,9 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
         displayLikedSongsArea = new javax.swing.JTextArea();
         searchTF = new javax.swing.JTextField();
         searchBTN = new javax.swing.JButton();
-        deleteBTN = new javax.swing.JButton();
         addToPlaylistBTN = new javax.swing.JButton();
+        deleteBTN = new javax.swing.JButton();
+        displayBTN = new javax.swing.JButton();
         StringifyLogo = new javax.swing.JLabel();
         HeadingText = new javax.swing.JLabel();
 
@@ -250,19 +251,34 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
         displayLikedSongsArea.setText("Title \t Artist \t Album \t Genre \n");
         jScrollPane1.setViewportView(displayLikedSongsArea);
 
-        searchBTN.setText("search");
+        searchBTN.setBackground(new java.awt.Color(102, 102, 102));
+        searchBTN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/searchIcon.png"))); // NOI18N
         searchBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchBTNActionPerformed(evt);
             }
         });
 
-        deleteBTN.setText("delete");
-
-        addToPlaylistBTN.setText("...");
+        addToPlaylistBTN.setBackground(new java.awt.Color(153, 255, 255));
+        addToPlaylistBTN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/addPlaylist.png"))); // NOI18N
         addToPlaylistBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addToPlaylistBTNActionPerformed(evt);
+            }
+        });
+
+        deleteBTN.setBackground(new java.awt.Color(255, 102, 102));
+        deleteBTN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/binIcon.png"))); // NOI18N
+        deleteBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteBTNActionPerformed(evt);
+            }
+        });
+
+        displayBTN.setText("Display");
+        displayBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                displayBTNActionPerformed(evt);
             }
         });
 
@@ -273,17 +289,18 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
             .addComponent(HeaderPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(LikedSongPlaylistPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(LikedSongPlaylistPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
+                .addGroup(LikedSongPlaylistPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(LikedSongPlaylistPanelLayout.createSequentialGroup()
-                        .addComponent(searchTF, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(searchTF, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(searchBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(searchBTN)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(deleteBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(addToPlaylistBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(displayBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(LikedSongPlaylistPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(deleteBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(addToPlaylistBTN, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         LikedSongPlaylistPanelLayout.setVerticalGroup(
@@ -292,16 +309,16 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
                 .addComponent(HeaderPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(LikedSongPlaylistPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(LikedSongPlaylistPanelLayout.createSequentialGroup()
-                        .addGroup(LikedSongPlaylistPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(searchTF, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(searchBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(deleteBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE))
-                    .addGroup(LikedSongPlaylistPanelLayout.createSequentialGroup()
-                        .addComponent(addToPlaylistBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(LikedSongPlaylistPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(searchTF, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(searchBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(LikedSongPlaylistPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(displayBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(addToPlaylistBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addGroup(LikedSongPlaylistPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(deleteBTN, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
 
@@ -393,8 +410,23 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
 
     private void searchBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBTNActionPerformed
         // TODO add your handling code here:
-        
+        loadFunctions.search();
     }//GEN-LAST:event_searchBTNActionPerformed
+
+    private void displayBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_displayBTNActionPerformed
+        // TODO add your handling code here:
+        displayLikedSongsArea.setText("");
+        displayLikedSongsArea.setText("# \tTitle \t Artist \t Album \t Genre \n");
+        displayLikedSongsArea.append(loadFunctions.displayLikedSongs());  
+    }//GEN-LAST:event_displayBTNActionPerformed
+
+    private void deleteBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBTNActionPerformed
+        // TODO add your handling code here:
+        loadFunctions.pop();
+          displayLikedSongsArea.setText("");
+          displayLikedSongsArea.setText("# \tTitle \t Artist \t Album \t Genre \n");
+          displayLikedSongsArea.append(loadFunctions.displayLikedSongs());
+    }//GEN-LAST:event_deleteBTNActionPerformed
 
     /**
      * @param args the command line arguments
@@ -451,6 +483,7 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
     private javax.swing.JPanel body;
     private javax.swing.JPanel border;
     private javax.swing.JButton deleteBTN;
+    private javax.swing.JButton displayBTN;
     public static javax.swing.JTextArea displayLikedSongsArea;
     public static javax.swing.JComboBox<String> genreComboBox;
     private javax.swing.JPanel homePanel;
