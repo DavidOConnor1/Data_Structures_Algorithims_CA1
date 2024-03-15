@@ -125,6 +125,7 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
         songNameLabel.setText("*Song Name:");
 
         songNameTF.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
+        songNameTF.setToolTipText("Enter your song name here");
         songNameTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 songNameTFActionPerformed(evt);
@@ -135,6 +136,7 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
         artistNameLabel.setText("*Artist Name:");
 
         artistNameTF.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
+        artistNameTF.setToolTipText("Enter your artist name here");
         artistNameTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 artistNameTFActionPerformed(evt);
@@ -145,6 +147,7 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
         albumNameLabel.setText("Album Name:");
 
         albumNameTF.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
+        albumNameTF.setToolTipText("Not a required field but you can enter the album name");
         albumNameTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 albumNameTFActionPerformed(evt);
@@ -155,6 +158,7 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
         GenreLabel.setText("*Genre:");
 
         genreComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pop/Rap", "Indie/Rock" }));
+        genreComboBox.setToolTipText("Please select the right genres");
 
         addSongBTN.setText("Add Song");
         addSongBTN.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -251,8 +255,11 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
         displayLikedSongsArea.setText("Title \t Artist \t Album \t Genre \n");
         jScrollPane1.setViewportView(displayLikedSongsArea);
 
+        searchTF.setToolTipText("Enter the song name to complete the search");
+
         searchBTN.setBackground(new java.awt.Color(102, 102, 102));
         searchBTN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/searchIcon.png"))); // NOI18N
+        searchBTN.setToolTipText("Enter into the searchterm field and press me");
         searchBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchBTNActionPerformed(evt);
@@ -261,6 +268,7 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
 
         addToPlaylistBTN.setBackground(new java.awt.Color(153, 255, 255));
         addToPlaylistBTN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/addPlaylist.png"))); // NOI18N
+        addToPlaylistBTN.setToolTipText("Press me to add ur most recent song to a playlist");
         addToPlaylistBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addToPlaylistBTNActionPerformed(evt);
@@ -269,6 +277,7 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
 
         deleteBTN.setBackground(new java.awt.Color(255, 102, 102));
         deleteBTN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/binIcon.png"))); // NOI18N
+        deleteBTN.setToolTipText("Press me to delete the most recent song");
         deleteBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteBTNActionPerformed(evt);
@@ -276,6 +285,7 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
         });
 
         displayBTN.setText("Display");
+        displayBTN.setToolTipText("Press me to refresh the liked songs after searching");
         displayBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 displayBTNActionPerformed(evt);
