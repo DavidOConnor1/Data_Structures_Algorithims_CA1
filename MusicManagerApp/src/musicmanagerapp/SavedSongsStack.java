@@ -6,7 +6,7 @@ package musicmanagerapp;
 
 
 import java.util.ArrayList;
-import java.util.Iterator;
+
 import javax.swing.JOptionPane;
 
 /**
@@ -15,6 +15,7 @@ import javax.swing.JOptionPane;
  */
 public class SavedSongsStack implements SongStackInterface {
     ArrayList<SongSchema> likePlaylist;
+    PlaylistLinearInterface doubleFunction = new DoublyLinkedList();
   
 
     public SavedSongsStack() {
@@ -70,14 +71,20 @@ public class SavedSongsStack implements SongStackInterface {
     }
     
     @Override
-    public Object peek()
+    public void peek()
     {
+        PlaylistGUI load = new PlaylistGUI();
         if(isEmpty())
         {
             JOptionPane.showMessageDialog(null, "The liked songs playlist is empty");
-            return null;
+             load.setVisible(false);
+          
         } else {
-            return likePlaylist.get(0).songDetails();
+            
+           String transfer = likePlaylist.get(0).songDetails();
+            
+            doubleFunction.addFirst("hello world");
+             load.setVisible(true);
         }
     }
     

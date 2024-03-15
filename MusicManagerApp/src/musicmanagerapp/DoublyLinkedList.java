@@ -71,7 +71,8 @@ public class DoublyLinkedList implements PlaylistLinearInterface {
         Node currentNode = head;
 
         while (currentNode != null) {
-            System.out.println(currentNode.data+"");
+         //  PlaylistGUI.displayPopSongs.append(currentNode.data.toString()+"\n");
+             System.out.println(currentNode.data+"");
             currentNode = currentNode.next;
         }
 

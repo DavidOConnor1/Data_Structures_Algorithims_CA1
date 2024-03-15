@@ -16,6 +16,6 @@ public interface PlaylistLinearInterface {
     public void addLast(Object data);
     public boolean remove(Object data);
     public void displayList();
-    
+   
     
 }

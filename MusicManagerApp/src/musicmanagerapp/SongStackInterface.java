@@ -12,7 +12,7 @@ public interface SongStackInterface {
     
     public void push(SongSchema newSong);
     public Object pop();
-    public Object peek();
+    public void peek();
     
     public boolean isEmpty();
     public int size();

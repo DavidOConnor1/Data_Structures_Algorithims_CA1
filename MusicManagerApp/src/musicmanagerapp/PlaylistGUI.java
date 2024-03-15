@@ -8,27 +8,15 @@ package musicmanagerapp;
  *
  * @author dmoc2
  */
-public class Music_Manager_GUI extends javax.swing.JFrame {
+public class PlaylistGUI extends javax.swing.JFrame {
 
     /**
-     * Creates new form Music_Manager_GUI
+     * Creates new form PlaylistGUI
      */
-    
-    
-    SongSchema newSong;
-    
-    SongStackInterface test;
-    
-    public Music_Manager_GUI() {
+    public PlaylistGUI() {
         initComponents();
-        newSong = new SongSchema();
-        loadFunctions = new SavedSongsStack();
-        
     }
-    
-   SongStackInterface loadFunctions;
-    
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -44,18 +32,19 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
         homePanel = new javax.swing.JPanel();
         layeredHeadPane = new javax.swing.JLayeredPane();
         HeaderPane = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         HomeLabel = new javax.swing.JLabel();
-        songNameLabel = new javax.swing.JLabel();
-        songNameTF = new javax.swing.JTextField();
-        artistNameLabel = new javax.swing.JLabel();
-        artistNameTF = new javax.swing.JTextField();
-        albumNameLabel = new javax.swing.JLabel();
-        albumNameTF = new javax.swing.JTextField();
-        GenreLabel = new javax.swing.JLabel();
-        genreComboBox = new javax.swing.JComboBox<>();
-        addSongBTN = new javax.swing.JButton();
-        LikedSongPlaylistPanel = new javax.swing.JPanel();
+        PopRapPanel = new javax.swing.JPanel();
+        HeaderPane2 = new javax.swing.JPanel();
+        LikeLogo1 = new javax.swing.JLabel();
+        LikedSongsLabel1 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        displayPopSongs = new javax.swing.JTextArea();
+        searchTF1 = new javax.swing.JTextField();
+        searchBTN1 = new javax.swing.JButton();
+        deleteBTN1 = new javax.swing.JButton();
+        displayBTN1 = new javax.swing.JButton();
+        shuffle = new javax.swing.JButton();
+        IndieRockPanel = new javax.swing.JPanel();
         HeaderPane1 = new javax.swing.JPanel();
         LikeLogo = new javax.swing.JLabel();
         LikedSongsLabel = new javax.swing.JLabel();
@@ -63,9 +52,9 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
         displayLikedSongsArea = new javax.swing.JTextArea();
         searchTF = new javax.swing.JTextField();
         searchBTN = new javax.swing.JButton();
-        addToPlaylistBTN = new javax.swing.JButton();
         deleteBTN = new javax.swing.JButton();
         displayBTN = new javax.swing.JButton();
+        shuffleBTN = new javax.swing.JButton();
         StringifyLogo = new javax.swing.JLabel();
         HeadingText = new javax.swing.JLabel();
 
@@ -79,31 +68,23 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
 
         HeaderPane.setBackground(new java.awt.Color(0, 204, 204));
 
-        jLabel1.setBackground(new java.awt.Color(153, 204, 255));
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/homify.png"))); // NOI18N
-
         HomeLabel.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 20)); // NOI18N
-        HomeLabel.setText("Home |   Add Your Favorite Songs             ");
+        HomeLabel.setText("Pop/Rap | That Friday Feeling PlayList             ");
 
         javax.swing.GroupLayout HeaderPaneLayout = new javax.swing.GroupLayout(HeaderPane);
         HeaderPane.setLayout(HeaderPaneLayout);
         HeaderPaneLayout.setHorizontalGroup(
             HeaderPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(HeaderPaneLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(79, 79, 79)
                 .addComponent(HomeLabel)
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         HeaderPaneLayout.setVerticalGroup(
             HeaderPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(HeaderPaneLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(HeaderPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(HomeLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(HomeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         layeredHeadPane.setLayer(HeaderPane, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -121,104 +102,137 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
                 .addComponent(HeaderPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        songNameLabel.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
-        songNameLabel.setText("*Song Name:");
+        HeaderPane2.setBackground(new java.awt.Color(0, 204, 204));
 
-        songNameTF.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
-        songNameTF.setToolTipText("Enter your song name here");
-        songNameTF.addActionListener(new java.awt.event.ActionListener() {
+        LikeLogo1.setBackground(new java.awt.Color(153, 204, 255));
+        LikeLogo1.setForeground(new java.awt.Color(255, 255, 255));
+        LikeLogo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LikeLogo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/loveHeartLogo.png"))); // NOI18N
+
+        LikedSongsLabel1.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 20)); // NOI18N
+        LikedSongsLabel1.setText("Liked Songs |   View all of your favourite Songs ");
+
+        javax.swing.GroupLayout HeaderPane2Layout = new javax.swing.GroupLayout(HeaderPane2);
+        HeaderPane2.setLayout(HeaderPane2Layout);
+        HeaderPane2Layout.setHorizontalGroup(
+            HeaderPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(HeaderPane2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(LikeLogo1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(LikedSongsLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        HeaderPane2Layout.setVerticalGroup(
+            HeaderPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(HeaderPane2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(HeaderPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(LikeLogo1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(LikedSongsLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+
+        displayPopSongs.setColumns(20);
+        displayPopSongs.setRows(5);
+        displayPopSongs.setText("Title \t Artist \t Album \t Genre \n");
+        jScrollPane2.setViewportView(displayPopSongs);
+
+        searchTF1.setToolTipText("Enter the song name to complete the search");
+
+        searchBTN1.setBackground(new java.awt.Color(102, 102, 102));
+        searchBTN1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/searchIcon.png"))); // NOI18N
+        searchBTN1.setToolTipText("Enter into the searchterm field and press me");
+        searchBTN1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                songNameTFActionPerformed(evt);
+                searchBTN1ActionPerformed(evt);
             }
         });
 
-        artistNameLabel.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
-        artistNameLabel.setText("*Artist Name:");
-
-        artistNameTF.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
-        artistNameTF.setToolTipText("Enter your artist name here");
-        artistNameTF.addActionListener(new java.awt.event.ActionListener() {
+        deleteBTN1.setBackground(new java.awt.Color(255, 102, 102));
+        deleteBTN1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/binIcon.png"))); // NOI18N
+        deleteBTN1.setToolTipText("Press me to delete the most recent song");
+        deleteBTN1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                artistNameTFActionPerformed(evt);
+                deleteBTN1ActionPerformed(evt);
             }
         });
 
-        albumNameLabel.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
-        albumNameLabel.setText("Album Name:");
-
-        albumNameTF.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
-        albumNameTF.setToolTipText("Not a required field but you can enter the album name");
-        albumNameTF.addActionListener(new java.awt.event.ActionListener() {
+        displayBTN1.setText("Display");
+        displayBTN1.setToolTipText("Press me to refresh the liked songs after searching");
+        displayBTN1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                albumNameTFActionPerformed(evt);
+                displayBTN1ActionPerformed(evt);
             }
         });
 
-        GenreLabel.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
-        GenreLabel.setText("*Genre:");
+        shuffle.setText("Shuffle");
 
-        genreComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pop/Rap", "Indie/Rock" }));
-        genreComboBox.setToolTipText("Please select the right genres");
-
-        addSongBTN.setText("Add Song");
-        addSongBTN.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        addSongBTN.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addSongBTNActionPerformed(evt);
-            }
-        });
+        javax.swing.GroupLayout PopRapPanelLayout = new javax.swing.GroupLayout(PopRapPanel);
+        PopRapPanel.setLayout(PopRapPanelLayout);
+        PopRapPanelLayout.setHorizontalGroup(
+            PopRapPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(HeaderPane2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(PopRapPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(PopRapPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(PopRapPanelLayout.createSequentialGroup()
+                        .addComponent(searchTF1, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(searchBTN1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(displayBTN1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PopRapPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(deleteBTN1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(shuffle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        PopRapPanelLayout.setVerticalGroup(
+            PopRapPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PopRapPanelLayout.createSequentialGroup()
+                .addComponent(HeaderPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(PopRapPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(searchBTN1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchTF1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(PopRapPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(deleteBTN1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addComponent(displayBTN1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addGroup(PopRapPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PopRapPanelLayout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PopRapPanelLayout.createSequentialGroup()
+                        .addComponent(shuffle, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(16, 16, 16))))
+        );
 
         javax.swing.GroupLayout homePanelLayout = new javax.swing.GroupLayout(homePanel);
         homePanel.setLayout(homePanelLayout);
         homePanelLayout.setHorizontalGroup(
             homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(layeredHeadPane, javax.swing.GroupLayout.Alignment.TRAILING)
-            .addGroup(homePanelLayout.createSequentialGroup()
-                .addGroup(homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(homePanelLayout.createSequentialGroup()
-                        .addGap(65, 65, 65)
-                        .addGroup(homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(artistNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(songNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(albumNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(GenreLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(songNameTF)
-                            .addComponent(artistNameTF)
-                            .addComponent(albumNameTF, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
-                            .addComponent(genreComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(homePanelLayout.createSequentialGroup()
-                        .addGap(144, 144, 144)
-                        .addComponent(addSongBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(homePanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(PopRapPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         homePanelLayout.setVerticalGroup(
             homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(homePanelLayout.createSequentialGroup()
                 .addComponent(layeredHeadPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(58, 58, 58)
-                .addGroup(homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(songNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(songNameTF, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(artistNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(artistNameTF, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addGroup(homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(albumNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-                    .addComponent(albumNameTF, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addGroup(homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(GenreLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-                    .addComponent(genreComboBox, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(addSongBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45))
+                .addContainerGap(377, Short.MAX_VALUE))
+            .addGroup(homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(homePanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(PopRapPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
-        tabbedPane.addTab("Home", homePanel);
+        tabbedPane.addTab("Pop/Rap", homePanel);
 
         HeaderPane1.setBackground(new java.awt.Color(0, 204, 204));
 
@@ -239,7 +253,7 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
                 .addComponent(LikeLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(LikedSongsLabel)
-                .addContainerGap(10, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         HeaderPane1Layout.setVerticalGroup(
             HeaderPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -266,15 +280,6 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
             }
         });
 
-        addToPlaylistBTN.setBackground(new java.awt.Color(153, 255, 255));
-        addToPlaylistBTN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/addPlaylist.png"))); // NOI18N
-        addToPlaylistBTN.setToolTipText("Press me to add ur most recent song to a playlist");
-        addToPlaylistBTN.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addToPlaylistBTNActionPerformed(evt);
-            }
-        });
-
         deleteBTN.setBackground(new java.awt.Color(255, 102, 102));
         deleteBTN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/binIcon.png"))); // NOI18N
         deleteBTN.setToolTipText("Press me to delete the most recent song");
@@ -292,15 +297,17 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout LikedSongPlaylistPanelLayout = new javax.swing.GroupLayout(LikedSongPlaylistPanel);
-        LikedSongPlaylistPanel.setLayout(LikedSongPlaylistPanelLayout);
-        LikedSongPlaylistPanelLayout.setHorizontalGroup(
-            LikedSongPlaylistPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        shuffleBTN.setText("Shuffle");
+
+        javax.swing.GroupLayout IndieRockPanelLayout = new javax.swing.GroupLayout(IndieRockPanel);
+        IndieRockPanel.setLayout(IndieRockPanelLayout);
+        IndieRockPanelLayout.setHorizontalGroup(
+            IndieRockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(HeaderPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(LikedSongPlaylistPanelLayout.createSequentialGroup()
+            .addGroup(IndieRockPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(LikedSongPlaylistPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(LikedSongPlaylistPanelLayout.createSequentialGroup()
+                .addGroup(IndieRockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(IndieRockPanelLayout.createSequentialGroup()
                         .addComponent(searchTF, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(searchBTN)
@@ -308,30 +315,30 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
                         .addComponent(displayBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(LikedSongPlaylistPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(IndieRockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(deleteBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(addToPlaylistBTN, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(shuffleBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
-        LikedSongPlaylistPanelLayout.setVerticalGroup(
-            LikedSongPlaylistPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(LikedSongPlaylistPanelLayout.createSequentialGroup()
+        IndieRockPanelLayout.setVerticalGroup(
+            IndieRockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(IndieRockPanelLayout.createSequentialGroup()
                 .addComponent(HeaderPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(LikedSongPlaylistPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(IndieRockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(searchBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(searchTF, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(LikedSongPlaylistPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(displayBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(addToPlaylistBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(IndieRockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(deleteBTN, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addComponent(displayBTN, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
-                .addGroup(LikedSongPlaylistPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(IndieRockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(deleteBTN, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(shuffleBTN, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
-        tabbedPane.addTab("Liked Songs", LikedSongPlaylistPanel);
+        tabbedPane.addTab("Indie/Rock", IndieRockPanel);
 
         StringifyLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/Stringify.png"))); // NOI18N
 
@@ -395,50 +402,31 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void addSongBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addSongBTNActionPerformed
-        // TODO add your handling code here:
-        loadFunctions.push(newSong);
-          
-    }//GEN-LAST:event_addSongBTNActionPerformed
-
-    private void songNameTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_songNameTFActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_songNameTFActionPerformed
-
-    private void artistNameTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_artistNameTFActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_artistNameTFActionPerformed
-
-    private void albumNameTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_albumNameTFActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_albumNameTFActionPerformed
-
-    private void addToPlaylistBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToPlaylistBTNActionPerformed
-        // TODO add your handling code here:
-        PlaylistLinearInterface loadDouble = new DoublyLinkedList();
-        loadFunctions.peek();
-        loadDouble.displayList();
-    }//GEN-LAST:event_addToPlaylistBTNActionPerformed
-
     private void searchBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBTNActionPerformed
         // TODO add your handling code here:
-        loadFunctions.search();
+        
     }//GEN-LAST:event_searchBTNActionPerformed
-
-    private void displayBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_displayBTNActionPerformed
-        // TODO add your handling code here:
-        displayLikedSongsArea.setText("");
-        displayLikedSongsArea.setText("# \tTitle \t Artist \t Album \t Genre \n");
-        displayLikedSongsArea.append(loadFunctions.displayLikedSongs());  
-    }//GEN-LAST:event_displayBTNActionPerformed
 
     private void deleteBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBTNActionPerformed
         // TODO add your handling code here:
-        loadFunctions.pop();
-          displayLikedSongsArea.setText("");
-          displayLikedSongsArea.setText("# \tTitle \t Artist \t Album \t Genre \n");
-          displayLikedSongsArea.append(loadFunctions.displayLikedSongs());
+       
     }//GEN-LAST:event_deleteBTNActionPerformed
+
+    private void displayBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_displayBTNActionPerformed
+       
+    }//GEN-LAST:event_displayBTNActionPerformed
+
+    private void searchBTN1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBTN1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchBTN1ActionPerformed
+
+    private void deleteBTN1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBTN1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_deleteBTN1ActionPerformed
+
+    private void displayBTN1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_displayBTN1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_displayBTN1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -457,55 +445,55 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Music_Manager_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PlaylistGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Music_Manager_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PlaylistGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Music_Manager_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PlaylistGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Music_Manager_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PlaylistGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Music_Manager_GUI().setVisible(true);
-                
+                new PlaylistGUI().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel GenreLabel;
     private javax.swing.JPanel HeaderPane;
     private javax.swing.JPanel HeaderPane1;
+    private javax.swing.JPanel HeaderPane2;
     private javax.swing.JLabel HeadingText;
     private javax.swing.JLabel HomeLabel;
+    private static javax.swing.JPanel IndieRockPanel;
     private javax.swing.JLabel LikeLogo;
-    private static javax.swing.JPanel LikedSongPlaylistPanel;
+    private javax.swing.JLabel LikeLogo1;
     private javax.swing.JLabel LikedSongsLabel;
+    private javax.swing.JLabel LikedSongsLabel1;
+    private static javax.swing.JPanel PopRapPanel;
     private javax.swing.JLabel StringifyLogo;
-    private javax.swing.JButton addSongBTN;
-    private javax.swing.JButton addToPlaylistBTN;
-    private javax.swing.JLabel albumNameLabel;
-    public static javax.swing.JTextField albumNameTF;
-    private javax.swing.JLabel artistNameLabel;
-    public static javax.swing.JTextField artistNameTF;
     private javax.swing.JPanel body;
     private javax.swing.JPanel border;
     private javax.swing.JButton deleteBTN;
+    private javax.swing.JButton deleteBTN1;
     private javax.swing.JButton displayBTN;
+    private javax.swing.JButton displayBTN1;
     public static javax.swing.JTextArea displayLikedSongsArea;
-    public static javax.swing.JComboBox<String> genreComboBox;
+    public static javax.swing.JTextArea displayPopSongs;
     private javax.swing.JPanel homePanel;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLayeredPane layeredHeadPane;
     private javax.swing.JButton searchBTN;
+    private javax.swing.JButton searchBTN1;
     public static javax.swing.JTextField searchTF;
-    private javax.swing.JLabel songNameLabel;
-    public static javax.swing.JTextField songNameTF;
+    public static javax.swing.JTextField searchTF1;
+    private javax.swing.JButton shuffle;
+    private javax.swing.JButton shuffleBTN;
     private javax.swing.JTabbedPane tabbedPane;
     // End of variables declaration//GEN-END:variables
 }

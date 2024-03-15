@@ -17,18 +17,15 @@ public class MusicManagerApp {
         // TODO code application logic here
         
         Music_Manager_GUI load = new Music_Manager_GUI();
-        load.setVisible(false);
+        load.setVisible(true);
        
-         PlaylistLinearInterface test = new DoublyLinkedList();
-         
-         test.addFirst("Hello world");
-         test.addFirst("2");
-          test.addFirst("7");
-           test.addFirst("10");
-            test.addFirst("8");
-             test.addLast("99");
-             
-          test.displayList();
+         PlaylistLinearInterface doubleFunction = new DoublyLinkedList();
+         doubleFunction.addFirst(3);
+         doubleFunction.addFirst(444);
+           doubleFunction.addFirst(244);
+         doubleFunction.displayList();
+         doubleFunction.remove(244);
+         doubleFunction.displayList();
              
             
         
