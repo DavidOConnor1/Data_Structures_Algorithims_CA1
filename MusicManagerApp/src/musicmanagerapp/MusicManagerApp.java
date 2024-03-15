@@ -18,7 +18,18 @@ public class MusicManagerApp {
         
         Music_Manager_GUI load = new Music_Manager_GUI();
         load.setVisible(true);
+        /*
+        PlaylistLinearInterface load2 = new DoublePlaylist(); 
         
+        load2.add(0, "A");
+         load2.add(1, "b");
+          load2.add(2, "c");
+           load2.add(3, "d");
+            load2.add(4, "e");
+             load2.add(5, "f");
+             
+             load2.displayPlaylist();
+        */
     }
     
 }
