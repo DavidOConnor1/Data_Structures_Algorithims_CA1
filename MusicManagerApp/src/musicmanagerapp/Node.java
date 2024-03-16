@@ -9,18 +9,40 @@ package musicmanagerapp;
  * @author dmoc2
  */
 public class Node {
-   Object data;
+   SongSchema song;
    Node previous, next;
 
-    public Node(Object d) 
+    public Node(SongSchema song) 
     {
-        data = d;
+        this.song = song;
         
         //they have not been intialized yet
         previous = null;
         next = null; 
     
     }
+
+    public Node getPrevious() {
+        return previous;
+    }
+
+    public void setPrevious(Node previous) {
+        this.previous = previous;
+    }
+
+    public Node getNext() {
+        return next;
+    }
+
+    public void setNext(Node next) {
+        this.next = next;
+    }
+
+    public SongSchema getSong() {
+        return song;
+    }
+
+   
    
    
     

@@ -14,42 +14,57 @@ import javax.swing.JOptionPane;
  * @author dmoc2
  */
 public class SavedSongsStack implements SongStackInterface {
-    ArrayList<SongSchema> likePlaylist;
-    PlaylistLinearInterface doubleFunction = new DoublyLinkedList();
+    ArrayList<Node> rapPopPlaylist;
+    ArrayList<Node> indieRockPlaylist;
+   
+    public static SongStackInterface instance;
   
 
     public SavedSongsStack() {
-        likePlaylist = new ArrayList<>();
+        rapPopPlaylist = new ArrayList<>();
+        indieRockPlaylist = new ArrayList<>();
     }
     
     @Override
-    public boolean isEmpty()
+    public boolean isEmptyRap()
     {
-        return likePlaylist.isEmpty();
+        return rapPopPlaylist.isEmpty();
+    }
+    
+       @Override
+    public boolean isEmptyRock()
+    {
+        return indieRockPlaylist.isEmpty();
     }
     
     @Override
-    public void push(SongSchema newSong)
+    public void pushPopRap(SongSchema newSong)
     {
         try
         {//will try the following code 
-      newSong = new SongSchema();
-      /*
-      The following code below will add information from the text fields and combo box
-      */
-      newSong.setSongName(Music_Manager_GUI.songNameTF.getText());
-      newSong.setArtist(Music_Manager_GUI.artistNameTF.getText());
-      newSong.setAlbum(Music_Manager_GUI.albumNameTF.getText());
-      newSong.setGenre(Music_Manager_GUI.genreComboBox.getSelectedItem().toString());
       
-       if(!likePlaylist.contains(newSong)){ //if a new song is not the same details as the last song, it will add the song
-           likePlaylist.add(0, newSong); //will add the song to the first index
-           System.out.println("The song has successfully has been added");
-           System.out.println("this is ur song that u added");
-           Music_Manager_GUI.displayLikedSongsArea.setText("");
-           Music_Manager_GUI.displayLikedSongsArea.setText("# \tTitle \t Artist \t Album \t Genre \n");
-           Music_Manager_GUI.displayLikedSongsArea.append(displayLikedSongs());
-       }//end if 
+      Node newNode = new Node(newSong);
+      
+     rapPopPlaylist.add(newNode);
+      
+        }//end try 
+        catch(Exception ex){//checking for errors
+            JOptionPane.showMessageDialog(null, ex); //displays error
+            System.out.println(ex); //displays error
+        }
+       
+    }
+    
+      @Override
+    public void pushIndieRock(SongSchema newSong)
+    {
+        try
+        {//will try the following code 
+      
+      Node newNode = new Node(newSong);
+      
+     indieRockPlaylist.add(newNode);
+      
         }//end try 
         catch(Exception ex){//checking for errors
             JOptionPane.showMessageDialog(null, ex); //displays error
@@ -59,62 +74,75 @@ public class SavedSongsStack implements SongStackInterface {
     }
     
     @Override
-    public Object pop()
+    public Object popRockIndie()
     {
-        if(isEmpty())
+        if(isEmptyRock())
         {
             JOptionPane.showMessageDialog(null, "There is nothing to remove");
             return null;
         } else {
-            return likePlaylist.remove(0); // removes the item stored at the index 0
+            return indieRockPlaylist.remove(0); // removes the item stored at the index 0
         }
     }
     
     @Override
-    public void peek()
-    {
-        PlaylistGUI load = new PlaylistGUI();
-        if(isEmpty())
+    public Object removePop(){
+         if(isEmptyRap())
         {
-            JOptionPane.showMessageDialog(null, "The liked songs playlist is empty");
-             load.setVisible(false);
-          
+            JOptionPane.showMessageDialog(null, "There is nothing to remove");
+            return null;
         } else {
-            
-           String transfer = likePlaylist.get(0).songDetails();
-            
-            doubleFunction.addFirst("hello world");
-             load.setVisible(true);
+            return rapPopPlaylist.remove(0); // removes the item stored at the index 0
         }
     }
     
     
     
-    @Override
-    public int size()
-    {
-        return likePlaylist.size();
-    }
+    
     
     @Override
-    public String displayLikedSongs()
+    public String displayRap()
     {
         String str = new String();
         
-        if (isEmpty()) {
-            str = str.concat("There is no liked songs to display");
+        if (isEmptyRap()) {
+            str = str.concat("There is no rap/pop songs to display");
             JOptionPane.showMessageDialog(null, str);
         } else {
-            for (int i = 0; i < likePlaylist.size(); i++) {
-                int index = likePlaylist.indexOf(likePlaylist.get(i));
-                SongSchema load = likePlaylist.get(i);
-                str = str.concat(index+" \t"+load.songDetails());
+            for (int i = 0; i < rapPopPlaylist.size(); i++) {
+                int index = rapPopPlaylist.indexOf(rapPopPlaylist.get(i));
+                Node load = rapPopPlaylist.get(i);
+                str = str.concat(index+" \t"+load.getSong().songDetails());
                 str = str.concat("\n");
             }
         }
         return str; //returns the str to be displayed within the terminal
     }
     
+      @Override
+    public String displayRock()
+    {
+        String str = new String();
+        
+        if (isEmptyRock()) {
+            str = str.concat("There is no rap/pop songs to display");
+            JOptionPane.showMessageDialog(null, str);
+        } else {
+            for (int i = 0; i < indieRockPlaylist.size(); i++) {
+                int index = indieRockPlaylist.indexOf(indieRockPlaylist.get(i));
+                Node load = indieRockPlaylist.get(i);
+                str = str.concat(index+" \t"+load.getSong().songDetails());
+                str = str.concat("\n");
+            }
+        }
+        return str; //returns the str to be displayed within the terminal
+    }
+    
+    
+    
+    
+    
+    /*
     @Override
     public void search()
     {
@@ -142,4 +170,5 @@ public class SavedSongsStack implements SongStackInterface {
             System.out.println("There is an error"+ex);
         }
     }
+*/
 }

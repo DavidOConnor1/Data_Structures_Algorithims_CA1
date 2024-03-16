@@ -397,8 +397,12 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
 
     private void addSongBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addSongBTNActionPerformed
         // TODO add your handling code here:
-        loadFunctions.push(newSong);
+       // loadFunctions.push(newSong);
+          PlaylistLinearInterface loadDouble = new DoublyLinkedList();
           
+          loadDouble.addFirst();
+         
+          loadDouble.displayList();
     }//GEN-LAST:event_addSongBTNActionPerformed
 
     private void songNameTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_songNameTFActionPerformed

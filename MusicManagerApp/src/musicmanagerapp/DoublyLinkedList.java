@@ -94,8 +94,9 @@ public class DoublyLinkedList implements PlaylistLinearInterface {
         
         while (currentNode != null) {
          //  PlaylistGUI.displayPopSongs.append(currentNode.data.toString()+"\n");
-             System.out.println(currentNode.getSong().songDetails());
-            currentNode = currentNode.getNext();
+             System.out.println(size+" "+currentNode.getSong().songDetails());
+             
+             currentNode = currentNode.getNext();
             
         }
 
@@ -104,44 +105,23 @@ public class DoublyLinkedList implements PlaylistLinearInterface {
 
 
 @Override
-public boolean remove(SongSchema song)
+public void removeSong()
 {
-    if (head == null) {
-        return false;
+    Node currentNode = head;
+    Node previousNode = tail;
+    
+    while(currentNode.getNext() != null)
+    {
+        previousNode = currentNode;
+        currentNode = currentNode.getNext();
     }
-    if (head.song == song) {
-        if (head == tail) {
-            head = null;
-            tail=null;
-        }
-    }
-    else {
-        head = head.next;
-        head.previous = null;
-        size --;
-        return true;
+    
+    if(previousNode == null){
+        head = null;
+    } else {
+        previousNode.setNext(null);
     }
    
-
-    Node currNode = head.next;
-
-    while(currNode != null && currNode != tail)
-    {
-       if (currNode.song == song) {
-            currNode.previous.next = currNode.next;
-            currNode.next.previous = currNode.previous;
-            size--;
-            return true;
-       }
-       currNode = currNode.next;
-    }
-       if (tail.song == song) {
-            tail = tail.previous;
-            tail.next =null;
-            return true;
-       }
-    
-return false;
 }
 
 private Node getPredecessor()
@@ -172,6 +152,14 @@ private Node getSuccessor()
            
     }
 }
+
+@Override
+public void addGenrePlayList()
+{
+    
+}
+
+
 
     
 }

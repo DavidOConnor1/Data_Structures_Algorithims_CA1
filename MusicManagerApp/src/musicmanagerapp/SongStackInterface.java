@@ -10,13 +10,17 @@ package musicmanagerapp;
  */
 public interface SongStackInterface {
     
-    public void push(SongSchema newSong);
-    public Object pop();
-    public void peek();
+    public void pushPopRap(SongSchema newSong);
+    public void pushIndieRock(SongSchema newSong);
+    public Object removePop();
+    public Object popRockIndie();
     
-    public boolean isEmpty();
-    public int size();
-    public String displayLikedSongs();
-    public void search();
+    
+    public boolean isEmptyRap();
+    public boolean isEmptyRock();
+    //public int size();
+    public String displayRap();
+    public String displayRock();
+   // public void search();
     
 }
