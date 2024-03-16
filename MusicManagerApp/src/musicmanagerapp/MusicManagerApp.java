@@ -18,26 +18,13 @@ public class MusicManagerApp {
         
         Music_Manager_GUI load = new Music_Manager_GUI();
         load.setVisible(true);
-<<<<<<< HEAD
-       
-         //PlaylistLinearInterface doubleFunction = new DoublyLinkedList();
-         
-             
-            
-=======
-        /*
-        PlaylistLinearInterface load2 = new DoublePlaylist(); 
->>>>>>> parent of 233d1ba (After various testing of different dll tutorials one of my tests have finally worked!!)
-        
-        load2.add(0, "A");
-         load2.add(1, "b");
-          load2.add(2, "c");
-           load2.add(3, "d");
-            load2.add(4, "e");
-             load2.add(5, "f");
-             
-             load2.displayPlaylist();
-        */
+        PlaylistLinearInterface doubleFunction = new DoublyLinkedList();
+         doubleFunction.addFirst(3);
+         doubleFunction.addFirst(444);
+           doubleFunction.addFirst(244);
+         doubleFunction.displayList();
+         doubleFunction.remove(244);
+         doubleFunction.displayList();
     }
     
 }
