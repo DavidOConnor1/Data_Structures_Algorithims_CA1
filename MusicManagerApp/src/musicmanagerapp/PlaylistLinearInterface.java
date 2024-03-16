@@ -13,7 +13,7 @@ public interface PlaylistLinearInterface {
     public boolean isEmpty();
     public int size();
     public void addFirst();
-    public void addLast();
+    
     public void removeSong();
     public void addGenrePlayList(); 
     public void displayList();

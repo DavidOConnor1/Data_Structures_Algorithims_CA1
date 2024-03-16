@@ -17,8 +17,8 @@ public class Node {
         this.song = song;
         
         //they have not been intialized yet
-        previous = null;
-        next = null; 
+        this.previous = null;
+        this.next = null; 
     
     }
 

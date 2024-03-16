@@ -17,7 +17,15 @@ public class SavedSongsStack implements SongStackInterface {
     ArrayList<Node> rapPopPlaylist;
     ArrayList<Node> indieRockPlaylist;
    
-    public static SongStackInterface instance;
+    public static SavedSongsStack instance;
+    
+    public static SavedSongsStack grabInstance()
+    {
+        if (instance == null) {
+           instance = new SavedSongsStack(); 
+        }
+        return instance;
+    }
   
 
     public SavedSongsStack() {

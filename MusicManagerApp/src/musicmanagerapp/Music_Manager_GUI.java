@@ -420,28 +420,28 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
     private void addToPlaylistBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToPlaylistBTNActionPerformed
         // TODO add your handling code here:
         PlaylistLinearInterface loadDouble = new DoublyLinkedList();
-        loadFunctions.peek();
+        //loadFunctions.peek();
         loadDouble.displayList();
     }//GEN-LAST:event_addToPlaylistBTNActionPerformed
 
     private void searchBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBTNActionPerformed
         // TODO add your handling code here:
-        loadFunctions.search();
+       // loadFunctions.search();
     }//GEN-LAST:event_searchBTNActionPerformed
 
     private void displayBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_displayBTNActionPerformed
         // TODO add your handling code here:
         displayLikedSongsArea.setText("");
         displayLikedSongsArea.setText("# \tTitle \t Artist \t Album \t Genre \n");
-        displayLikedSongsArea.append(loadFunctions.displayLikedSongs());  
+      //  displayLikedSongsArea.append(loadFunctions.displayLikedSongs());  
     }//GEN-LAST:event_displayBTNActionPerformed
 
     private void deleteBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBTNActionPerformed
         // TODO add your handling code here:
-        loadFunctions.pop();
+       // loadFunctions.pop();
           displayLikedSongsArea.setText("");
           displayLikedSongsArea.setText("# \tTitle \t Artist \t Album \t Genre \n");
-          displayLikedSongsArea.append(loadFunctions.displayLikedSongs());
+        // displayLikedSongsArea.append(loadFunctions.displayLikedSongs());
     }//GEN-LAST:event_deleteBTNActionPerformed
 
     /**
