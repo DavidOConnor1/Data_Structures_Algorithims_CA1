@@ -28,33 +28,54 @@ public class DoublyLinkedList implements PlaylistLinearInterface {
     return size;
   }
 @Override
-  public void addFirst(Object data)
+  public void addFirst()
   {
-    Node newNode = new Node(data);
+      
+      String name = Music_Manager_GUI.songNameTF.getText();
+      String artist = Music_Manager_GUI.artistNameTF.getText();
+      String album = Music_Manager_GUI.albumNameTF.getText();
+      String genre = Music_Manager_GUI.genreComboBox.getSelectedItem().toString();
+      SongSchema song = new SongSchema(name,artist,album,genre);
+    Node newNode = new Node(song);
+    
 
     if (head == null) {
         head = newNode;
-        tail = newNode;
+        
     } else {
-        newNode.next = head;// will assign the next node as the head node
-        head.previous = newNode; //assign previous head as new Node?
-        head = newNode;
+        Node predecessor = getPredecessor();
+        if (predecessor != null) {
+            predecessor.setNext(newNode);
+            
+            //don't forget to display it
+        } else {
+            JOptionPane.showMessageDialog(null, "unable to add song");
+        }
+        
     }
     size++;
 
   }
 @Override
-  public void addLast(Object data)
+  public void addLast()
  {
-    Node newNode = new Node(data);
+      String name = Music_Manager_GUI.songNameTF.getText();
+      String artist = Music_Manager_GUI.artistNameTF.getText();
+      String album = Music_Manager_GUI.albumNameTF.getText();
+      String genre = Music_Manager_GUI.genreComboBox.getSelectedItem().toString();
+      SongSchema song = new SongSchema(name,artist,album,genre);
+    Node newNode = new Node(song);
     if (tail == null) //checking if the tail is null
      {
-        head = newNode;
         tail = newNode;
     } else {
-        tail.next = newNode;
-        newNode.previous = tail; //previous node will be assigned to the tail
-        tail = newNode;
+        Node successor = getSuccessor();
+        if (successor != null) {
+            successor.setPrevious(newNode);
+            
+        } else {
+            JOptionPane.showMessageDialog(null, "unsble to add");
+        }
     }
     size++;
 
@@ -67,13 +88,15 @@ public class DoublyLinkedList implements PlaylistLinearInterface {
     {
         System.out.println("List is empty");
     } else {
+        
         System.out.println("All of the items");
         Node currentNode = head;
-
+        
         while (currentNode != null) {
          //  PlaylistGUI.displayPopSongs.append(currentNode.data.toString()+"\n");
-             System.out.println(currentNode.data+"");
-            currentNode = currentNode.next;
+             System.out.println(currentNode.getSong().songDetails());
+            currentNode = currentNode.getNext();
+            
         }
 
     }
@@ -81,12 +104,12 @@ public class DoublyLinkedList implements PlaylistLinearInterface {
 
 
 @Override
-public boolean remove(Object data)
+public boolean remove(SongSchema song)
 {
     if (head == null) {
         return false;
     }
-    if (head.data == data) {
+    if (head.song == song) {
         if (head == tail) {
             head = null;
             tail=null;
@@ -104,7 +127,7 @@ public boolean remove(Object data)
 
     while(currNode != null && currNode != tail)
     {
-       if (currNode.data == data) {
+       if (currNode.song == song) {
             currNode.previous.next = currNode.next;
             currNode.next.previous = currNode.previous;
             size--;
@@ -112,7 +135,7 @@ public boolean remove(Object data)
        }
        currNode = currNode.next;
     }
-       if (tail.data == data) {
+       if (tail.song == song) {
             tail = tail.previous;
             tail.next =null;
             return true;
@@ -120,5 +143,35 @@ public boolean remove(Object data)
     
 return false;
 }
+
+private Node getPredecessor()
+{
+    if(head == null){
+        return null;
+    } 
+        Node currentNode = head;
+        while(currentNode.getNext() != null)
+        {
+            currentNode = currentNode.getNext();
+        }
+        return currentNode;
+}
+
+private Node getSuccessor()
+{
+    if(tail == null)
+    {
+        return null;
+    } else {
+        Node currentNode = tail;
+        
+        while(currentNode.getPrevious() != null){
+             currentNode = currentNode.getPrevious();
+        }
+        return currentNode;
+           
+    }
+}
+
     
 }
