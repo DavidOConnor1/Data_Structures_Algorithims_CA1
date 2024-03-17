@@ -18,13 +18,14 @@ public class MusicManagerApp {
         
         Music_Manager_GUI load = new Music_Manager_GUI();
         load.setVisible(true);
-        PlaylistLinearInterface doubleFunction = new DoublyLinkedList();
+      /*  PlaylistLinearInterface doubleFunction = new DoublyLinkedList();
          doubleFunction.addFirst(3);
          doubleFunction.addFirst(444);
            doubleFunction.addFirst(244);
          doubleFunction.displayList();
          doubleFunction.remove(244);
          doubleFunction.displayList();
+*/
     }
     
 }

@@ -11,22 +11,24 @@ import javax.swing.JOptionPane;
  * @author dmoc2
  */
 public class DoublyLinkedList implements PlaylistLinearInterface {
-    
+   /* 
  int size;
   Node head, tail;
 
+  @Override
   public boolean isEmpty()
   {
     return size ==0;
   }
   
   
-  
+  @Override
   public int size()
   {
     return size;
   }
 
+  @Override
   public void addFirst(Object data)
   {
     Node newNode = new Node(data);
@@ -117,4 +119,5 @@ public boolean remove(Object data)
     
 return false;
 }
+*/
 }

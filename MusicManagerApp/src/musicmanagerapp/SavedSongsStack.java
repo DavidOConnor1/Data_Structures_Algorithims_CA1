@@ -14,8 +14,8 @@ import javax.swing.JOptionPane;
  * @author dmoc2
  */
 public class SavedSongsStack implements SongStackInterface {
-    ArrayList<Node> rapPopPlaylist;
-    ArrayList<Node> indieRockPlaylist;
+    ArrayList<SongSchema> playlist;
+
    
     public static SavedSongsStack instance;
     
@@ -51,9 +51,21 @@ public class SavedSongsStack implements SongStackInterface {
         try
         {//will try the following code 
       
-      Node newNode = new Node(newSong);
+      newSong = new SongSchema();
       
-     rapPopPlaylist.add(newNode);
+         newSong.setSongName(Music_Manager_GUI.songNameTF.getText());
+      newSong.setArtist(Music_Manager_GUI.artistNameTF.getText());
+      newSong.setAlbum(Music_Manager_GUI.albumNameTF.getText());
+      newSong.setGenre(Music_Manager_GUI.genreComboBox.getItemAt(0));
+      if(!rapPopPlaylist.contains(newSong)){
+          rapPopPlaylist.add(0,newSong);
+          System.out.println("added song to playlist!");
+          System.out.println(newSong.songDetails());
+          Node head = Test.convertArr2Dll(rapPopPlaylist);
+          System.out.println("the data has passed over as a double linked list!");
+          Test.print(head);
+      }
+     
       
         }//end try 
         catch(Exception ex){//checking for errors
@@ -119,8 +131,8 @@ public class SavedSongsStack implements SongStackInterface {
         } else {
             for (int i = 0; i < rapPopPlaylist.size(); i++) {
                 int index = rapPopPlaylist.indexOf(rapPopPlaylist.get(i));
-                Node load = rapPopPlaylist.get(i);
-                str = str.concat(index+" \t"+load.getSong().songDetails());
+                SongSchema load = rapPopPlaylist.get(i);
+             //   str = str.concat(index+" \t"+load.getSong().songDetails());
                 str = str.concat("\n");
             }
         }
@@ -139,7 +151,7 @@ public class SavedSongsStack implements SongStackInterface {
             for (int i = 0; i < indieRockPlaylist.size(); i++) {
                 int index = indieRockPlaylist.indexOf(indieRockPlaylist.get(i));
                 Node load = indieRockPlaylist.get(i);
-                str = str.concat(index+" \t"+load.getSong().songDetails());
+              //  str = str.concat(index+" \t"+load.getSong().songDetails());
                 str = str.concat("\n");
             }
         }

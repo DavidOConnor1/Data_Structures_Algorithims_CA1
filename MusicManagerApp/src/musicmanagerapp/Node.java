@@ -9,16 +9,23 @@ package musicmanagerapp;
  * @author dmoc2
  */
 public class Node {
-     Object data;
-    Node previous, next;
+     public SongSchema data;
+    public Node next;
+    public Node back;
 
-    public Node(Object d)
+    public Node(SongSchema data1, Node next1, Node back1)
     {
-        data = d;
-
-        previous = null;
-        next = null;
-
+        data = data1;
+        next = next1;
+        back = back1;
     }
-    
+
+
+    public Node(SongSchema data1)
+    {
+        data = data1;
+        next = null;
+        back = null;
+    }
+
 }
