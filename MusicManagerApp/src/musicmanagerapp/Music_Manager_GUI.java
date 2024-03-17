@@ -4,6 +4,8 @@
  */
 package musicmanagerapp;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author dmoc2
@@ -17,8 +19,9 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
     
     SongSchema newSong;
     
-    SongStackInterface test;
-    
+   
+       SongStackInterface loadFunctions;
+       
     public Music_Manager_GUI() {
         initComponents();
         newSong = new SongSchema();
@@ -26,7 +29,7 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
         
     }
     
-   SongStackInterface loadFunctions;
+
     
     
     /**
@@ -396,24 +399,8 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addSongBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addSongBTNActionPerformed
-        // TODO add your handling code here:
-       // loadFunctions.push(newSong);
-        /*  PlaylistLinearInterface loadDouble = new DoublyLinkedList();
-         String name = songNameTF.getText();
-         String artist = artistNameTF.getText();
-         String album = albumNameTF.getText();
-         String genre = genreComboBox.getSelectedItem().toString();
-          
-         SongSchema input = new SongSchema(name, artist, album, genre);
-         loadDouble.addFirst(input.toString());
-          loadDouble.displayList();*/
-        
-        SavedSongsStack stack = new SavedSongsStack();
-        
-        stack.pushPopRap(newSong);
-        
-        
-        
+       
+        loadFunctions.pushPlaylist(newSong);
         
     }//GEN-LAST:event_addSongBTNActionPerformed
 
@@ -431,9 +418,7 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
 
     private void addToPlaylistBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToPlaylistBTNActionPerformed
         // TODO add your handling code here:
-        PlaylistLinearInterface loadDouble = new DoublyLinkedList();
-        //loadFunctions.peek();
-        loadDouble.displayList();
+            
     }//GEN-LAST:event_addToPlaylistBTNActionPerformed
 
     private void searchBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBTNActionPerformed
@@ -443,9 +428,11 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
 
     private void displayBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_displayBTNActionPerformed
         // TODO add your handling code here:
+      
         displayLikedSongsArea.setText("");
         displayLikedSongsArea.setText("# \tTitle \t Artist \t Album \t Genre \n");
-      //  displayLikedSongsArea.append(loadFunctions.displayLikedSongs());  
+        
+        displayLikedSongsArea.append(loadFunctions.displayPlaylist());  
     }//GEN-LAST:event_displayBTNActionPerformed
 
     private void deleteBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBTNActionPerformed

@@ -24,7 +24,7 @@ public class SongSchema implements Serializable {
     public SongSchema(String songName, String artist, String album, String genre) {
         this.songName = songName;
         this.artist = artist;
-        this.album = null;
+        this.album = album;
         this.genre = genre;
     }
 

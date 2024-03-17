@@ -14,56 +14,57 @@ import javax.swing.JOptionPane;
  * @author dmoc2
  */
 public class SavedSongsStack implements SongStackInterface {
-    ArrayList<SongSchema> playlist;
+    ArrayList<SongSchema> playlist = new ArrayList<>();
 
    
     public static SavedSongsStack instance;
-    
-    public static SavedSongsStack grabInstance()
-    {
-        if (instance == null) {
-           instance = new SavedSongsStack(); 
-        }
-        return instance;
+
+    public SavedSongsStack(ArrayList<SongSchema> playlist) {
+        this.playlist = playlist;
     }
-  
 
     public SavedSongsStack() {
-        rapPopPlaylist = new ArrayList<>();
-        indieRockPlaylist = new ArrayList<>();
     }
+    
+   
+  
+
     
     @Override
-    public boolean isEmptyRap()
+    public boolean isEmpty()
     {
-        return rapPopPlaylist.isEmpty();
+        return playlist.isEmpty();
     }
     
-       @Override
-    public boolean isEmptyRock()
-    {
-        return indieRockPlaylist.isEmpty();
-    }
+   
     
     @Override
-    public void pushPopRap(SongSchema newSong)
+    public void pushPlaylist(SongSchema newSong)
     {
         try
         {//will try the following code 
       
-      newSong = new SongSchema();
+            String name = Music_Manager_GUI.songNameTF.getText();
+      String artist = Music_Manager_GUI.artistNameTF.getText();
+      String album = Music_Manager_GUI.albumNameTF.getText();
+      String genre = Music_Manager_GUI.genreComboBox.getSelectedItem().toString();
+            
+            
+      newSong = new SongSchema(name, artist, album, genre);
       
-         newSong.setSongName(Music_Manager_GUI.songNameTF.getText());
-      newSong.setArtist(Music_Manager_GUI.artistNameTF.getText());
-      newSong.setAlbum(Music_Manager_GUI.albumNameTF.getText());
-      newSong.setGenre(Music_Manager_GUI.genreComboBox.getItemAt(0));
-      if(!rapPopPlaylist.contains(newSong)){
-          rapPopPlaylist.add(0,newSong);
+        
+     
+      if(!playlist.contains(newSong)){
+          playlist.add(newSong);
+         
           System.out.println("added song to playlist!");
-          System.out.println(newSong.songDetails());
-          Node head = Test.convertArr2Dll(rapPopPlaylist);
-          System.out.println("the data has passed over as a double linked list!");
-          Test.print(head);
+          System.out.println(displayPlaylist());
+        // Node head = Test.convertArr2Dll(playlist);
+         // System.out.println("the data has passed over as a double linked list!");
+        //  Test.print(head);
+      } else {
+          System.out.println("This song already exists");
+      
       }
      
       
@@ -72,47 +73,19 @@ public class SavedSongsStack implements SongStackInterface {
             JOptionPane.showMessageDialog(null, ex); //displays error
             System.out.println(ex); //displays error
         }
-       
+      
     }
     
-      @Override
-    public void pushIndieRock(SongSchema newSong)
-    {
-        try
-        {//will try the following code 
-      
-      Node newNode = new Node(newSong);
-      
-     indieRockPlaylist.add(newNode);
-      
-        }//end try 
-        catch(Exception ex){//checking for errors
-            JOptionPane.showMessageDialog(null, ex); //displays error
-            System.out.println(ex); //displays error
-        }
-       
-    }
+     
     
     @Override
-    public Object popRockIndie()
-    {
-        if(isEmptyRock())
+    public Object remove(){
+         if(isEmpty())
         {
             JOptionPane.showMessageDialog(null, "There is nothing to remove");
             return null;
         } else {
-            return indieRockPlaylist.remove(0); // removes the item stored at the index 0
-        }
-    }
-    
-    @Override
-    public Object removePop(){
-         if(isEmptyRap())
-        {
-            JOptionPane.showMessageDialog(null, "There is nothing to remove");
-            return null;
-        } else {
-            return rapPopPlaylist.remove(0); // removes the item stored at the index 0
+            return playlist.remove(0); // removes the item stored at the index 0
         }
     }
     
@@ -121,42 +94,25 @@ public class SavedSongsStack implements SongStackInterface {
     
     
     @Override
-    public String displayRap()
+    public String displayPlaylist()
     {
         String str = new String();
         
-        if (isEmptyRap()) {
+        if (isEmpty()) {
             str = str.concat("There is no rap/pop songs to display");
             JOptionPane.showMessageDialog(null, str);
         } else {
-            for (int i = 0; i < rapPopPlaylist.size(); i++) {
-                int index = rapPopPlaylist.indexOf(rapPopPlaylist.get(i));
-                SongSchema load = rapPopPlaylist.get(i);
-             //   str = str.concat(index+" \t"+load.getSong().songDetails());
+            for (int i = 0; i < playlist.size(); i++) {
+                int index = playlist.indexOf(playlist.get(i));
+                SongSchema load = playlist.get(i);
+               str = str.concat(index+" \t"+load.songDetails());
                 str = str.concat("\n");
             }
         }
         return str; //returns the str to be displayed within the terminal
     }
     
-      @Override
-    public String displayRock()
-    {
-        String str = new String();
-        
-        if (isEmptyRock()) {
-            str = str.concat("There is no rap/pop songs to display");
-            JOptionPane.showMessageDialog(null, str);
-        } else {
-            for (int i = 0; i < indieRockPlaylist.size(); i++) {
-                int index = indieRockPlaylist.indexOf(indieRockPlaylist.get(i));
-                Node load = indieRockPlaylist.get(i);
-              //  str = str.concat(index+" \t"+load.getSong().songDetails());
-                str = str.concat("\n");
-            }
-        }
-        return str; //returns the str to be displayed within the terminal
-    }
+    
     
     
     
