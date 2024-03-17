@@ -10,8 +10,7 @@ import java.util.ArrayList;
  *
  * @author dmoc2
  */
-public class Test {
-    
+public class IndieRockDDL {
     public static Node convertArr2Dll(ArrayList<SongSchema> arr)
     {
         Node head = new Node(arr.get(0),null, null );
@@ -33,6 +32,4 @@ public class Test {
             head = head.next;
         }
     }
-    
-    
 }

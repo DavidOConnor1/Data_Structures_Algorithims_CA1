@@ -418,12 +418,12 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
 
     private void addToPlaylistBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToPlaylistBTNActionPerformed
         // TODO add your handling code here:
-            
+            loadFunctions.transfer();
     }//GEN-LAST:event_addToPlaylistBTNActionPerformed
 
     private void searchBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBTNActionPerformed
         // TODO add your handling code here:
-       // loadFunctions.search();
+        loadFunctions.search();
     }//GEN-LAST:event_searchBTNActionPerformed
 
     private void displayBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_displayBTNActionPerformed

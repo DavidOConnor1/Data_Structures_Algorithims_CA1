@@ -61,7 +61,7 @@ public class SavedSongsStack implements SongStackInterface {
           System.out.println(displayPlaylist());
         // Node head = Test.convertArr2Dll(playlist);
          // System.out.println("the data has passed over as a double linked list!");
-        //  Test.print(head);
+        // Test.print(head);
       } else {
           System.out.println("This song already exists");
       
@@ -113,12 +113,6 @@ public class SavedSongsStack implements SongStackInterface {
     }
     
     
-    
-    
-    
-    
-    
-    /*
     @Override
     public void search()
     {
@@ -130,7 +124,7 @@ public class SavedSongsStack implements SongStackInterface {
             str = str.concat("There is no Liked songs to be searched right now \n Add your favorite songs on the home page!");
             JOptionPane.showMessageDialog(null, str);
         } else {
-           for(SongSchema song : likePlaylist){ // song will take on the current element in the array, will stop having to loop through the indexs
+           for(SongSchema song : playlist){ // song will take on the current element in the array, will stop having to loop through the indexs
                if(song.getSongName().equals(searchIndex)){
                    
                    Music_Manager_GUI.displayLikedSongsArea.setText("");
@@ -146,5 +140,14 @@ public class SavedSongsStack implements SongStackInterface {
             System.out.println("There is an error"+ex);
         }
     }
-*/
+    
+    
+    
+    @Override
+    public void transfer()
+    {
+        Node head = PopRapDDL.convertArr2Dll(playlist);
+        PopRapDDL.print(head);
+    }
+
 }

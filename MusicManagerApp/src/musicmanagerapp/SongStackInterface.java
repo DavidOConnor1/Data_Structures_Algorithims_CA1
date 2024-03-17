@@ -19,6 +19,6 @@ public interface SongStackInterface {
     
     //public int size();
     public String displayPlaylist();
-   // public void search();
-    
+    public void search();
+    public void transfer();
 }
