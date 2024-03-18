@@ -176,7 +176,7 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
                                       <Component id="HomeLabel" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="16" max="32767" attributes="0"/>
+                                      <EmptySpace pref="71" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -195,7 +195,7 @@
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Franklin Gothic Medium" size="20" style="0"/>
                                 </Property>
-                                <Property name="text" type="java.lang.String" value="Pop/Rap | That Friday Feeling PlayList             "/>
+                                <Property name="text" type="java.lang.String" value="PlayList 1 | Enjoy your songs in one list!"/>
                               </Properties>
                             </Component>
                           </SubComponents>
@@ -223,10 +223,13 @@
                                       </Group>
                                       <Component id="jScrollPane2" alignment="0" min="-2" pref="385" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="deleteBTN1" max="32767" attributes="0"/>
-                                      <Component id="shuffle" max="32767" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="shuffle" min="-2" pref="57" max="-2" attributes="0"/>
+                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      </Group>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
@@ -252,8 +255,8 @@
                                           <EmptySpace max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="1" attributes="0">
-                                          <Component id="shuffle" min="-2" pref="50" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                                          <Component id="shuffle" min="-2" pref="55" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -385,8 +388,13 @@
                         </Component>
                         <Component class="javax.swing.JButton" name="shuffle">
                           <Properties>
-                            <Property name="text" type="java.lang.String" value="Shuffle"/>
+                            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                              <Image iconType="3" name="/imgs/shufflify.jpg"/>
+                            </Property>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="shuffleActionPerformed"/>
+                          </Events>
                         </Component>
                       </SubComponents>
                     </Container>
@@ -504,7 +512,7 @@
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Franklin Gothic Medium" size="20" style="0"/>
                             </Property>
-                            <Property name="text" type="java.lang.String" value="Liked Songs |   View all of your favourite Songs "/>
+                            <Property name="text" type="java.lang.String" value="PlayList 2 | Enjoy your songs in one list!"/>
                           </Properties>
                         </Component>
                       </SubComponents>

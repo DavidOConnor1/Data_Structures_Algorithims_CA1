@@ -6,6 +6,7 @@ package musicmanagerapp;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import musicmanagerapp.PlaylistGUI;
 
 /**
  *
@@ -84,10 +85,14 @@ public class PopRapDDL {
         System.out.println("List is empty");
     } else {
         System.out.println("Forward travesal");
+                PlaylistGUI.displayPopSongs.setText("Name \t Artist \t Album \t Genre \n");
+        
         Node currentNode = head;
 
         while (currentNode != null) {
-            System.out.println(currentNode.data.songDetails()+"");
+            
+    
+            PlaylistGUI.displayPopSongs.append(currentNode.data.songDetails()+"");
             currentNode = currentNode.next;
         }
 
@@ -101,10 +106,21 @@ public class PopRapDDL {
         
     } else{
         System.out.println("backwards travesal");
-        Node currNode = tail;
+            PlaylistGUI.displayPopSongs.setText("");
+        PlaylistGUI.displayPopSongs.setText("Name \t Artist \t Album \t Genre \n");
+        Node currNode = head;
 
-        while (currNode != null) {
-            System.out.println(currNode.data+"");
+        while (currNode.next != null) {
+          
+            currNode = currNode.next ;
+        
+           
+        }
+        //travesing backwards from the last node to the head 
+        while(currNode != null)
+        {
+            PlaylistGUI.displayPopSongs.append(currNode.data.songDetails());
+            System.out.println(currNode.data.songDetails());
             currNode = currNode.back;
         }
 
@@ -114,6 +130,7 @@ public class PopRapDDL {
 public boolean remove(Object data)
 {
     if (head == null) {
+        JOptionPane.showMessageDialog(null, "There is no songs to remove");
         return false;
     }
     if (head.data == data) {
@@ -151,4 +168,12 @@ public boolean remove(Object data)
 return false;
 }
     
+
+    public void Search()
+    {
+        
+    }
+
+
+
 }

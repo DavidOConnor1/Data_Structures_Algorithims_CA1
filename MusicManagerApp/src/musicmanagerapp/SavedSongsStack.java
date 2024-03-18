@@ -155,19 +155,24 @@ public class SavedSongsStack implements SongStackInterface {
             
         }
         
+        else{
+        
         int type = Integer.parseInt(JOptionPane.showInputDialog(null,"Press 1 to Add to Playlist 1,\nPress 2 to add to playlist 2"));
         
-        
+        PlaylistGUI load = new PlaylistGUI();
         if(type == 1){
             Node head = PopRapDDL.convertArr2Dll(playlist);
             remove();
             PopRapDDL.print(head);
+            load.setVisible(true);
         } else if (type ==2)
         {
             Node head = IndieRockDDL.convertArr2Dll(playlist);
             remove();
             IndieRockDDL.print(head);
+             load.setVisible(true);
         }
+    }
     }
 
 }
