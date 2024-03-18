@@ -69,6 +69,7 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
         addToPlaylistBTN = new javax.swing.JButton();
         deleteBTN = new javax.swing.JButton();
         displayBTN = new javax.swing.JButton();
+        playBTN = new javax.swing.JButton();
         StringifyLogo = new javax.swing.JLabel();
         HeadingText = new javax.swing.JLabel();
 
@@ -98,7 +99,7 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(HomeLabel)
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
         HeaderPaneLayout.setVerticalGroup(
             HeaderPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -242,7 +243,7 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
                 .addComponent(LikeLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(LikedSongsLabel)
-                .addContainerGap(10, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         HeaderPane1Layout.setVerticalGroup(
             HeaderPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -295,6 +296,13 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
             }
         });
 
+        playBTN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/playify.png"))); // NOI18N
+        playBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                playBTNActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout LikedSongPlaylistPanelLayout = new javax.swing.GroupLayout(LikedSongPlaylistPanel);
         LikedSongPlaylistPanel.setLayout(LikedSongPlaylistPanelLayout);
         LikedSongPlaylistPanelLayout.setHorizontalGroup(
@@ -313,7 +321,8 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(LikedSongPlaylistPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(deleteBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(addToPlaylistBTN, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(addToPlaylistBTN, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(playBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         LikedSongPlaylistPanelLayout.setVerticalGroup(
@@ -328,9 +337,12 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
                         .addComponent(displayBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(addToPlaylistBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
-                .addGroup(LikedSongPlaylistPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(LikedSongPlaylistPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(deleteBTN, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LikedSongPlaylistPanelLayout.createSequentialGroup()
+                        .addComponent(playBTN)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(deleteBTN)))
                 .addContainerGap())
         );
 
@@ -347,12 +359,14 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
         body.setLayout(bodyLayout);
         bodyLayout.setHorizontalGroup(
             bodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tabbedPane, javax.swing.GroupLayout.Alignment.TRAILING)
-            .addGroup(bodyLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bodyLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(StringifyLogo)
-                .addGap(18, 18, 18)
-                .addComponent(HeadingText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(bodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(tabbedPane)
+                    .addGroup(bodyLayout.createSequentialGroup()
+                        .addComponent(StringifyLogo)
+                        .addGap(18, 18, 18)
+                        .addComponent(HeadingText, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         bodyLayout.setVerticalGroup(
@@ -362,9 +376,9 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
                 .addGroup(bodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(StringifyLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(HeadingText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(tabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout borderLayout = new javax.swing.GroupLayout(border);
@@ -449,6 +463,13 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
         // displayLikedSongsArea.append(loadFunctions.displayLikedSongs());
     }//GEN-LAST:event_deleteBTNActionPerformed
 
+    private void playBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playBTNActionPerformed
+        // TODO add your handling code here:
+        
+        loadFunctions.playFunction();
+        
+    }//GEN-LAST:event_playBTNActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -511,6 +532,7 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLayeredPane layeredHeadPane;
+    private javax.swing.JButton playBTN;
     private javax.swing.JButton searchBTN;
     public static javax.swing.JTextField searchTF;
     private javax.swing.JLabel songNameLabel;

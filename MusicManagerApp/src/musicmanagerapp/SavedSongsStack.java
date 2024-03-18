@@ -20,7 +20,7 @@ import javax.swing.JOptionPane;
 public class SavedSongsStack implements SongStackInterface {
     ArrayList<SongSchema> playlist = new ArrayList<>();
     
-   
+    private Timer timer;
     public static SavedSongsStack instance;
 
     public SavedSongsStack(ArrayList<SongSchema> playlist) {
@@ -156,18 +156,19 @@ public class SavedSongsStack implements SongStackInterface {
         
         int type = Integer.parseInt(JOptionPane.showInputDialog(null,"Press 1 to Add to Playlist 1,\nPress 2 to add to playlist 2"));
         
+        // this will allow the user to determine where the songs will go in terms of the playlist 
         PlaylistGUI load = new PlaylistGUI();
         if(type == 1){
-            Node head = PopRapDDL.convertArr2Dll(playlist);
-            remove();
-            PopRapDDL.print(head);
-            load.setVisible(true);
+            Node head = PopRapDDL.convertArr2Dll(playlist); //this will convert the playlist over to the popRap playlist DDL
+            remove(); //it will remove the song from the liked playlist 
+            PopRapDDL.print(head); //will print the play list in the terminal to show that it has successfully transfered
+            load.setVisible(true); //will show the playlist form
         } else if (type ==2)
         {
-            Node head = IndieRockDDL.convertArr2Dll(playlist);
-            remove();
-            IndieRockDDL.print(head);
-             load.setVisible(true);
+            Node head = IndieRockDDL.convertArr2Dll(playlist); //this will convert the playlist over to the indie/rock playlist
+            remove(); //will remove the song from the playlist 
+            IndieRockDDL.print(head); //will print the song to show if it has successfully transfered
+             load.setVisible(true); //will load the playlist form
         }
     }
     }
@@ -178,7 +179,8 @@ public class SavedSongsStack implements SongStackInterface {
     @Override
     public void playFunction()
     {
-      Timer timer = new Timer(3000, new ActionListener()
+     timer = new Timer(3000, new ActionListener() // there is a 3 second delay between playing each song 
+              //also there is a 3second delay until the songs stat to display
       {
           private int index =0;
           
@@ -189,18 +191,22 @@ public class SavedSongsStack implements SongStackInterface {
               {
                   JOptionPane.showMessageDialog(null, "There is no music to play right now");
               } else {
-                  System.out.println("Current Song that is Playing: \n "+playlist.get(index).getSongName());
-                  index = (index +1)% playlist.size();
+                  Music_Manager_GUI.displayLikedSongsArea.setText("");
+                  Music_Manager_GUI.displayLikedSongsArea.append("Current Song that is Playing: \n "+playlist.get(index).getSongName());
+                  index = (index +1)% playlist.size(); // this will increment through the playlist start from the index of 0
               }
           }
     });
     timer.start(); //will load the function of the play list.
     }
     
-    
+    @Override
     public void stopFunction()
     {
-        
+        if(timer != null)
+        {
+            timer.stop(); // this will stop the repeat functions
+        }
     }
 
 }

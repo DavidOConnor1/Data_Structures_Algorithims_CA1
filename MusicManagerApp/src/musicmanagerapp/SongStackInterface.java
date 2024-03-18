@@ -19,6 +19,7 @@ public interface SongStackInterface {
     
     public boolean isEmpty();
     public void playFunction(); // this will serve as my repeat function 
+    public void stopFunction(); //this will stop the repeat function 
      public ArrayList<SongSchema> getPlaylist();
     //public int size();
     public String displayPlaylist();
