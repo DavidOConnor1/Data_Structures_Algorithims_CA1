@@ -5,9 +5,13 @@
 package musicmanagerapp;
 
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import javax.swing.Timer;
 
 import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -15,7 +19,7 @@ import javax.swing.JOptionPane;
  */
 public class SavedSongsStack implements SongStackInterface {
     ArrayList<SongSchema> playlist = new ArrayList<>();
-    private boolean methodCalled = false;
+    
    
     public static SavedSongsStack instance;
 
@@ -25,7 +29,7 @@ public class SavedSongsStack implements SongStackInterface {
 
     public SavedSongsStack() {
     }
-
+    @Override
     public ArrayList<SongSchema> getPlaylist() {
         return playlist;
     }
@@ -36,10 +40,7 @@ public class SavedSongsStack implements SongStackInterface {
         return playlist.isEmpty();
     }
     
-    public boolean isMethodCalled()
-    {
-        return methodCalled;
-    }
+    
    
     
     @Override
@@ -92,10 +93,6 @@ public class SavedSongsStack implements SongStackInterface {
             return playlist.remove(0); // removes the item stored at the index 0
         }
     }
-    
-    
-    
-    
     
     @Override
     public String displayPlaylist()
@@ -173,6 +170,37 @@ public class SavedSongsStack implements SongStackInterface {
              load.setVisible(true);
         }
     }
+    }
+    
+    
+    
+    //this is functioning as a my repeat function
+    @Override
+    public void playFunction()
+    {
+      Timer timer = new Timer(3000, new ActionListener()
+      {
+          private int index =0;
+          
+          @Override
+          public void actionPerformed(ActionEvent e)
+          {
+              if(isEmpty())
+              {
+                  JOptionPane.showMessageDialog(null, "There is no music to play right now");
+              } else {
+                  System.out.println("Current Song that is Playing: \n "+playlist.get(index).getSongName());
+                  index = (index +1)% playlist.size();
+              }
+          }
+    });
+    timer.start(); //will load the function of the play list.
+    }
+    
+    
+    public void stopFunction()
+    {
+        
     }
 
 }

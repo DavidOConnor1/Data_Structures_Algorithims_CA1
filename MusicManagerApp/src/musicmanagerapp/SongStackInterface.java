@@ -18,10 +18,10 @@ public interface SongStackInterface {
     public Object remove();
     
     public boolean isEmpty();
-    public boolean isMethodCalled();
+    public void playFunction(); // this will serve as my repeat function 
      public ArrayList<SongSchema> getPlaylist();
     //public int size();
     public String displayPlaylist();
     public void search();
-    public  void transfer();
+    public  void transfer(); // this will convert my array list as a DDL and move it over to the other playlists
 }
