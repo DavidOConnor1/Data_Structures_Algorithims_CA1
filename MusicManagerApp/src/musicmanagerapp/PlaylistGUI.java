@@ -29,13 +29,15 @@ public class PlaylistGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        HeaderPane = new javax.swing.JPanel();
         border = new javax.swing.JPanel();
         body = new javax.swing.JPanel();
         tabbedPane = new javax.swing.JTabbedPane();
         homePanel = new javax.swing.JPanel();
         layeredHeadPane = new javax.swing.JLayeredPane();
-        HeaderPane = new javax.swing.JPanel();
-        HomeLabel = new javax.swing.JLabel();
+        HeaderPane3 = new javax.swing.JPanel();
+        LikeLogo2 = new javax.swing.JLabel();
+        LikedSongsLabel2 = new javax.swing.JLabel();
         PopRapPanel = new javax.swing.JPanel();
         HeaderPane2 = new javax.swing.JPanel();
         LikeLogo1 = new javax.swing.JLabel();
@@ -47,6 +49,7 @@ public class PlaylistGUI extends javax.swing.JFrame {
         deleteBTN1 = new javax.swing.JButton();
         displayBTN1 = new javax.swing.JButton();
         shuffle = new javax.swing.JButton();
+        addSongsBTN = new javax.swing.JButton();
         IndieRockPanel = new javax.swing.JPanel();
         HeaderPane1 = new javax.swing.JPanel();
         LikeLogo = new javax.swing.JLabel();
@@ -61,6 +64,19 @@ public class PlaylistGUI extends javax.swing.JFrame {
         StringifyLogo = new javax.swing.JLabel();
         HeadingText = new javax.swing.JLabel();
 
+        HeaderPane.setBackground(new java.awt.Color(0, 204, 204));
+
+        javax.swing.GroupLayout HeaderPaneLayout = new javax.swing.GroupLayout(HeaderPane);
+        HeaderPane.setLayout(HeaderPaneLayout);
+        HeaderPaneLayout.setHorizontalGroup(
+            HeaderPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 488, Short.MAX_VALUE)
+        );
+        HeaderPaneLayout.setVerticalGroup(
+            HeaderPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 56, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         border.setBackground(new java.awt.Color(0, 0, 0));
@@ -69,40 +85,50 @@ public class PlaylistGUI extends javax.swing.JFrame {
 
         layeredHeadPane.setBackground(new java.awt.Color(153, 204, 255));
 
-        HeaderPane.setBackground(new java.awt.Color(0, 204, 204));
+        HeaderPane3.setBackground(new java.awt.Color(0, 204, 204));
 
-        HomeLabel.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 20)); // NOI18N
-        HomeLabel.setText("PlayList 1 | Enjoy your songs in one list!");
+        LikeLogo2.setBackground(new java.awt.Color(153, 204, 255));
+        LikeLogo2.setForeground(new java.awt.Color(255, 255, 255));
+        LikeLogo2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LikeLogo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/loveHeartLogo.png"))); // NOI18N
 
-        javax.swing.GroupLayout HeaderPaneLayout = new javax.swing.GroupLayout(HeaderPane);
-        HeaderPane.setLayout(HeaderPaneLayout);
-        HeaderPaneLayout.setHorizontalGroup(
-            HeaderPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(HeaderPaneLayout.createSequentialGroup()
-                .addGap(79, 79, 79)
-                .addComponent(HomeLabel)
-                .addContainerGap(71, Short.MAX_VALUE))
+        LikedSongsLabel2.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 20)); // NOI18N
+        LikedSongsLabel2.setText("PlayList 1 | Enjoy your songs in one list!");
+
+        javax.swing.GroupLayout HeaderPane3Layout = new javax.swing.GroupLayout(HeaderPane3);
+        HeaderPane3.setLayout(HeaderPane3Layout);
+        HeaderPane3Layout.setHorizontalGroup(
+            HeaderPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(HeaderPane3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(LikeLogo2, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(LikedSongsLabel2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        HeaderPaneLayout.setVerticalGroup(
-            HeaderPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(HeaderPaneLayout.createSequentialGroup()
+        HeaderPane3Layout.setVerticalGroup(
+            HeaderPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(HeaderPane3Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(HomeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(HeaderPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(LikeLogo2, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(LikedSongsLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
-        layeredHeadPane.setLayer(HeaderPane, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        layeredHeadPane.setLayer(HeaderPane3, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout layeredHeadPaneLayout = new javax.swing.GroupLayout(layeredHeadPane);
         layeredHeadPane.setLayout(layeredHeadPaneLayout);
         layeredHeadPaneLayout.setHorizontalGroup(
             layeredHeadPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(HeaderPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layeredHeadPaneLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(HeaderPane3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layeredHeadPaneLayout.setVerticalGroup(
             layeredHeadPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layeredHeadPaneLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(HeaderPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(HeaderPane3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         HeaderPane2.setBackground(new java.awt.Color(0, 204, 204));
@@ -124,7 +150,7 @@ public class PlaylistGUI extends javax.swing.JFrame {
                 .addComponent(LikeLogo1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(LikedSongsLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(7, Short.MAX_VALUE))
         );
         HeaderPane2Layout.setVerticalGroup(
             HeaderPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -168,10 +194,18 @@ public class PlaylistGUI extends javax.swing.JFrame {
             }
         });
 
-        shuffle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/shufflify.jpg"))); // NOI18N
+        shuffle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/shuffify.png"))); // NOI18N
         shuffle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 shuffleActionPerformed(evt);
+            }
+        });
+
+        addSongsBTN.setText("ADD");
+        addSongsBTN.setToolTipText("To add new songs press me ");
+        addSongsBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addSongsBTNActionPerformed(evt);
             }
         });
 
@@ -190,12 +224,11 @@ public class PlaylistGUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(displayBTN1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(PopRapPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(deleteBTN1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(PopRapPanelLayout.createSequentialGroup()
-                        .addComponent(shuffle, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                    .addComponent(shuffle, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(addSongsBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         PopRapPanelLayout.setVerticalGroup(
@@ -215,6 +248,8 @@ public class PlaylistGUI extends javax.swing.JFrame {
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PopRapPanelLayout.createSequentialGroup()
+                        .addComponent(addSongsBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(shuffle, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(15, 15, 15))))
         );
@@ -234,7 +269,7 @@ public class PlaylistGUI extends javax.swing.JFrame {
             homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(homePanelLayout.createSequentialGroup()
                 .addComponent(layeredHeadPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(377, Short.MAX_VALUE))
+                .addGap(0, 377, Short.MAX_VALUE))
             .addGroup(homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(homePanelLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -242,7 +277,7 @@ public class PlaylistGUI extends javax.swing.JFrame {
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
-        tabbedPane.addTab("Pop/Rap", homePanel);
+        tabbedPane.addTab("PlayList 1", homePanel);
 
         HeaderPane1.setBackground(new java.awt.Color(0, 204, 204));
 
@@ -348,7 +383,7 @@ public class PlaylistGUI extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        tabbedPane.addTab("Indie/Rock", IndieRockPanel);
+        tabbedPane.addTab("PlayList 2", IndieRockPanel);
 
         StringifyLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/Stringify.png"))); // NOI18N
 
@@ -435,6 +470,7 @@ public class PlaylistGUI extends javax.swing.JFrame {
 
     private void deleteBTN1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBTN1ActionPerformed
         // TODO add your handling code here:
+        load.remove(load.head);
     }//GEN-LAST:event_deleteBTN1ActionPerformed
 
     private void displayBTN1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_displayBTN1ActionPerformed
@@ -446,6 +482,11 @@ public class PlaylistGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         load.displayBackward();
     }//GEN-LAST:event_shuffleActionPerformed
+
+    private void addSongsBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addSongsBTNActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_addSongsBTNActionPerformed
 
     /**
      * @param args the command line arguments
@@ -486,15 +527,18 @@ public class PlaylistGUI extends javax.swing.JFrame {
     private javax.swing.JPanel HeaderPane;
     private javax.swing.JPanel HeaderPane1;
     private javax.swing.JPanel HeaderPane2;
+    private javax.swing.JPanel HeaderPane3;
     private javax.swing.JLabel HeadingText;
-    private javax.swing.JLabel HomeLabel;
     private static javax.swing.JPanel IndieRockPanel;
     private javax.swing.JLabel LikeLogo;
     private javax.swing.JLabel LikeLogo1;
+    private javax.swing.JLabel LikeLogo2;
     private javax.swing.JLabel LikedSongsLabel;
     private javax.swing.JLabel LikedSongsLabel1;
+    private javax.swing.JLabel LikedSongsLabel2;
     private static javax.swing.JPanel PopRapPanel;
     private javax.swing.JLabel StringifyLogo;
+    private javax.swing.JButton addSongsBTN;
     private javax.swing.JPanel body;
     private javax.swing.JPanel border;
     private javax.swing.JButton deleteBTN;

@@ -189,12 +189,13 @@ return false;
     public void displaySearch(String songName)
     {
         Node discovered = Search(songName);
-        
+        PlaylistGUI.displayPopSongs.setText("");
+        PlaylistGUI.displayPopSongs.setText("Name \t Artist \t Album \t Genre \n");
         if (discovered != null) {
             System.out.println("Song Found: ");
-            JOptionPane.showMessageDialog(null, discovered.data.songDetails());
+            PlaylistGUI.displayPopSongs.append(discovered.data.songDetails());
         } else {
-            System.out.println("Song has not be found");
+            JOptionPane.showMessageDialog(null, "The Song Could not be found ");
         }
     }
 
