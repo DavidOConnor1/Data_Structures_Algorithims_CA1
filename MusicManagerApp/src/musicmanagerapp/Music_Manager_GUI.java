@@ -19,14 +19,14 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
     
     SongSchema newSong;
     
-       PopRapDDL  loadDDL1;
+      
        SongStackInterface loadFunctions;
        
     public Music_Manager_GUI() {
         initComponents();
         newSong = new SongSchema();
         loadFunctions = new SavedSongsStack();
-         loadDDL1 = new PopRapDDL();
+         
     }
     
 
