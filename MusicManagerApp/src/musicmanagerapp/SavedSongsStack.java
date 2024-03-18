@@ -18,22 +18,28 @@ import javax.swing.JOptionPane;
  * @author dmoc2
  */
 public class SavedSongsStack implements SongStackInterface {
-    ArrayList<SongSchema> playlist = new ArrayList<>();
     
+    ArrayList<SongSchema> playlist = new ArrayList<>(); //making an instance of the arraylist
+    
+    //used for my repeater 
     private Timer timer;
-    public static SavedSongsStack instance;
+    
 
+    //intializing the array in the constructor
     public SavedSongsStack(ArrayList<SongSchema> playlist) {
         this.playlist = playlist;
     }
 
     public SavedSongsStack() {
     }
+    //to grab the playlist info for other methods 
     @Override
     public ArrayList<SongSchema> getPlaylist() {
         return playlist;
     }
       
+    
+    //checks if the array is empty 
     @Override
     public boolean isEmpty()
     {
@@ -45,32 +51,32 @@ public class SavedSongsStack implements SongStackInterface {
     
     @Override
     public void pushPlaylist(SongSchema newSong)
-    {
+    {//open push playlist 
         try
         {//will try the following code 
-      
+                //will grab all of the info nessacary to add an song
             String name = Music_Manager_GUI.songNameTF.getText();
-      String artist = Music_Manager_GUI.artistNameTF.getText();
-      String album = Music_Manager_GUI.albumNameTF.getText();
-      String genre = Music_Manager_GUI.genreComboBox.getSelectedItem().toString();
+            String artist = Music_Manager_GUI.artistNameTF.getText();
+            String album = Music_Manager_GUI.albumNameTF.getText();
+            String genre = Music_Manager_GUI.genreComboBox.getSelectedItem().toString();
             
             
-      newSong = new SongSchema(name, artist, album, genre);
+            newSong = new SongSchema(name, artist, album, genre); //create a new instance of song Schema will the parameters 
       
         
      
-      if(!playlist.contains(newSong)){
-          playlist.add(0,newSong);
+            if(!playlist.contains(newSong)) //will stop the data over writing eachother
+            {//open if 
+                playlist.add(0,newSong); //will store a new song a the index of 0
          
-          System.out.println("added song to playlist!");
-          System.out.println(displayPlaylist());
-        // Node head = Test.convertArr2Dll(playlist);
-         // System.out.println("the data has passed over as a double linked list!");
-        // Test.print(head);
-      } else {
-          System.out.println("This song already exists");
-      
-      }
+                //displays the song has beeen added to the terminal 
+                System.out.println("added song to playlist!");
+                System.out.println(displayPlaylist());
+      } 
+            else 
+            { //open else 
+                System.out.println("This song already exists");
+      } //end method 
      
       
         }//end try 
@@ -84,63 +90,69 @@ public class SavedSongsStack implements SongStackInterface {
      
     
     @Override
-    public Object remove(){
+    public Object remove()
+    {//open remove 
          if(isEmpty())
-        {
-            JOptionPane.showMessageDialog(null, "There is nothing to remove");
+        { //open if 
+            JOptionPane.showMessageDialog(null, "There is nothing to remove"); //tells the user there is nothing to be removed 
             return null;
-        } else {
+        }//close if  
+         else 
+         {//open else
             return playlist.remove(0); // removes the item stored at the index 0
-        }
-    }
+        } //close else
+    }//close remove 
     
     @Override
     public String displayPlaylist()
-    {
-        String str = new String();
+    { //open display 
+        String str = new String(); // this wil concat the Strings 
         
         if (isEmpty()) {
             str = str.concat("There is no rap/pop songs to display");
-            JOptionPane.showMessageDialog(null, str);
+            JOptionPane.showMessageDialog(null, str); //tells the user there is no songs to be displayed 
         } else {
-            for (int i = 0; i < playlist.size(); i++) {
-                int index = playlist.indexOf(playlist.get(i));
-                SongSchema load = playlist.get(i);
-               str = str.concat(index+" \t"+load.songDetails());
+            for (int i = 0; i < playlist.size(); i++) //will iterate through the array list to be displayed 
+            {//open for loop
+                int index = playlist.indexOf(playlist.get(i)); //will capture the index of songs to be then displayed and show the user how many songs they have  
+                SongSchema load = playlist.get(i); //will grab all of the data that is within the amount of in the index of the array
+               str = str.concat(index+" \t"+load.songDetails()); //will be used to print into the display
                 str = str.concat("\n");
-            }
-        }
+            } //end for 
+        }//end else 
         return str; //returns the str to be displayed within the terminal
-    }
+    } //close method 
     
     
     @Override
     public void search()
-    {
-        try{
+    { //open search
+        try{ //open try
         String str = new String();
-        String searchIndex = Music_Manager_GUI.searchTF.getText();
+        String searchIndex = Music_Manager_GUI.searchTF.getText(); //will be used to keep the cody more tidy and to capture the characters entered into the                                                                        search field 
         boolean found = false;
         if (isEmpty()) {
             str = str.concat("There is no Liked songs to be searched right now \n Add your favorite songs on the home page!");
-            JOptionPane.showMessageDialog(null, str);
+            JOptionPane.showMessageDialog(null, str); //will open a window to tell the user there is no songs to be searched
         } else {
            for(SongSchema song : playlist){ // song will take on the current element in the array, will stop having to loop through the indexs
-               if(song.getSongName().equals(searchIndex)){
+               if(song.getSongName().equalsIgnoreCase(searchIndex))
+               {//open if
                    
-                   Music_Manager_GUI.displayLikedSongsArea.setText("");
-                   Music_Manager_GUI.displayLikedSongsArea.setText("Title \t Artist \t Album \t Genre \n");
-                   Music_Manager_GUI.displayLikedSongsArea.append(song.songDetails());
+                   Music_Manager_GUI.displayLikedSongsArea.setText(""); //resets the display to blank not to cross over from previous data
+                   Music_Manager_GUI.displayLikedSongsArea.setText("Title \t Artist \t Album \t Genre \n"); //resests the header of the form
+                   Music_Manager_GUI.displayLikedSongsArea.append(song.songDetails()); //displays all of the details related to the song name that has been enter
 
                    found = true;
                    break; //ends the loop
-               } 
-           }
+               } //close if 
+           } //open for loop
         }//close search function
-        } catch(Exception ex){
-            System.out.println("There is an error"+ex);
-        }
-    }
+        }//close try 
+        catch(Exception ex){ //open catch
+            System.out.println("There is an error"+ex); // will display an error if there is one 
+        } //close catch
+    }//close search 
     
     
     
