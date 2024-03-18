@@ -42,7 +42,7 @@ public class PlaylistGUI extends javax.swing.JFrame {
         LikedSongsLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         displayPopSongs = new javax.swing.JTextArea();
-        searchTF1 = new javax.swing.JTextField();
+        searchPlaylistOne = new javax.swing.JTextField();
         searchBTN1 = new javax.swing.JButton();
         deleteBTN1 = new javax.swing.JButton();
         displayBTN1 = new javax.swing.JButton();
@@ -140,7 +140,7 @@ public class PlaylistGUI extends javax.swing.JFrame {
         displayPopSongs.setText("Title \t Artist \t Album \t Genre \n");
         jScrollPane2.setViewportView(displayPopSongs);
 
-        searchTF1.setToolTipText("Enter the song name to complete the search");
+        searchPlaylistOne.setToolTipText("Enter the song name to complete the search");
 
         searchBTN1.setBackground(new java.awt.Color(102, 102, 102));
         searchBTN1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/searchIcon.png"))); // NOI18N
@@ -184,7 +184,7 @@ public class PlaylistGUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(PopRapPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(PopRapPanelLayout.createSequentialGroup()
-                        .addComponent(searchTF1, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(searchPlaylistOne, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(searchBTN1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -205,7 +205,7 @@ public class PlaylistGUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(PopRapPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(searchBTN1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(searchTF1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchPlaylistOne, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(PopRapPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(deleteBTN1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addComponent(displayBTN1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)))
@@ -428,6 +428,9 @@ public class PlaylistGUI extends javax.swing.JFrame {
 
     private void searchBTN1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBTN1ActionPerformed
         // TODO add your handling code here:
+        load.Search(searchPlaylistOne.getText());
+        String songName = searchPlaylistOne.getText();
+        load.displaySearch(songName);
     }//GEN-LAST:event_searchBTN1ActionPerformed
 
     private void deleteBTN1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBTN1ActionPerformed
@@ -506,8 +509,8 @@ public class PlaylistGUI extends javax.swing.JFrame {
     private javax.swing.JLayeredPane layeredHeadPane;
     private javax.swing.JButton searchBTN;
     private javax.swing.JButton searchBTN1;
+    public static javax.swing.JTextField searchPlaylistOne;
     public static javax.swing.JTextField searchTF;
-    public static javax.swing.JTextField searchTF1;
     private javax.swing.JButton shuffle;
     private javax.swing.JButton shuffleBTN;
     private javax.swing.JTabbedPane tabbedPane;

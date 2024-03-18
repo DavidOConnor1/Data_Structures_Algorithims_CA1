@@ -169,11 +169,33 @@ return false;
 }
     
 
-    public void Search()
+    public Node Search(String songName)
     {
+        Node currNode = head;
         
+        while(currNode != null)
+        {
+            if(currNode.data.getSongName().equals(songName))
+            {
+                return currNode;
+        }
+            currNode = currNode.next;
+      
+   }
+        System.out.println("song could not be found");
+        return null;
     }
 
-
+    public void displaySearch(String songName)
+    {
+        Node discovered = Search(songName);
+        
+        if (discovered != null) {
+            System.out.println("Song Found: ");
+            JOptionPane.showMessageDialog(null, discovered.data.songDetails());
+        } else {
+            System.out.println("Song has not be found");
+        }
+    }
 
 }

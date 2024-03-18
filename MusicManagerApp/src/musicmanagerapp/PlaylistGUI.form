@@ -215,7 +215,7 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="searchTF1" min="-2" pref="192" max="-2" attributes="0"/>
+                                          <Component id="searchPlaylistOne" min="-2" pref="192" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="searchBTN1" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
@@ -242,7 +242,7 @@
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="searchBTN1" alignment="0" min="-2" pref="45" max="-2" attributes="0"/>
-                                      <Component id="searchTF1" alignment="0" min="-2" pref="45" max="-2" attributes="0"/>
+                                      <Component id="searchPlaylistOne" alignment="0" min="-2" pref="45" max="-2" attributes="0"/>
                                       <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                                           <Component id="deleteBTN1" alignment="0" pref="0" max="32767" attributes="0"/>
                                           <Component id="displayBTN1" alignment="0" pref="44" max="32767" attributes="0"/>
@@ -341,7 +341,7 @@
                             </Component>
                           </SubComponents>
                         </Container>
-                        <Component class="javax.swing.JTextField" name="searchTF1">
+                        <Component class="javax.swing.JTextField" name="searchPlaylistOne">
                           <Properties>
                             <Property name="toolTipText" type="java.lang.String" value="Enter the song name to complete the search"/>
                           </Properties>
