@@ -42,8 +42,11 @@ public class PopRapDDL implements PlaylistLinearInterface{
         return head;
     }
     
-    
-    
+    @Override
+    public void displaySize()
+    {
+        System.out.println(size());
+    }
   
     
     public static void print(Node head)

@@ -47,11 +47,12 @@ public class PlaylistGUI extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         displayPopSongs = new javax.swing.JTextArea();
         searchPlaylistOne = new javax.swing.JTextField();
-        searchBTN1 = new javax.swing.JButton();
-        deleteBTN1 = new javax.swing.JButton();
-        displayBTN1 = new javax.swing.JButton();
-        shuffle = new javax.swing.JButton();
-        addSongsBTN = new javax.swing.JButton();
+        SearchPlaylist1BTN = new javax.swing.JButton();
+        DeletePlaylist1 = new javax.swing.JButton();
+        DisplayPlaylist1BTN = new javax.swing.JButton();
+        ShufflePlaylist1 = new javax.swing.JButton();
+        addSongsPlaylist1BTN = new javax.swing.JButton();
+        sizePlaylist1 = new javax.swing.JButton();
         IndieRockPanel = new javax.swing.JPanel();
         HeaderPane1 = new javax.swing.JPanel();
         LikeLogo = new javax.swing.JLabel();
@@ -62,8 +63,9 @@ public class PlaylistGUI extends javax.swing.JFrame {
         searchPlaylist2BTN = new javax.swing.JButton();
         deletePlaylist2BTN = new javax.swing.JButton();
         displayPlaylist2BTN = new javax.swing.JButton();
-        addSongsBTN1 = new javax.swing.JButton();
-        shuffle1 = new javax.swing.JButton();
+        addSongsPlaylist2BTN = new javax.swing.JButton();
+        ShufflePlaylist2 = new javax.swing.JButton();
+        sizePlaylist2 = new javax.swing.JButton();
         StringifyLogo = new javax.swing.JLabel();
         HeadingText = new javax.swing.JLabel();
 
@@ -171,45 +173,52 @@ public class PlaylistGUI extends javax.swing.JFrame {
 
         searchPlaylistOne.setToolTipText("Enter the song name to complete the search");
 
-        searchBTN1.setBackground(new java.awt.Color(102, 102, 102));
-        searchBTN1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/searchIcon.png"))); // NOI18N
-        searchBTN1.setToolTipText("Enter the song name into the search bar and press me ");
-        searchBTN1.addActionListener(new java.awt.event.ActionListener() {
+        SearchPlaylist1BTN.setBackground(new java.awt.Color(102, 102, 102));
+        SearchPlaylist1BTN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/searchIcon.png"))); // NOI18N
+        SearchPlaylist1BTN.setToolTipText("Enter the song name into the search bar and press me ");
+        SearchPlaylist1BTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchBTN1ActionPerformed(evt);
+                SearchPlaylist1BTNActionPerformed(evt);
             }
         });
 
-        deleteBTN1.setBackground(new java.awt.Color(255, 102, 102));
-        deleteBTN1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/binIcon.png"))); // NOI18N
-        deleteBTN1.setToolTipText("Removes the recently added song!");
-        deleteBTN1.addActionListener(new java.awt.event.ActionListener() {
+        DeletePlaylist1.setBackground(new java.awt.Color(255, 102, 102));
+        DeletePlaylist1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/binIcon.png"))); // NOI18N
+        DeletePlaylist1.setToolTipText("Removes the recently added song!");
+        DeletePlaylist1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteBTN1ActionPerformed(evt);
+                DeletePlaylist1ActionPerformed(evt);
             }
         });
 
-        displayBTN1.setText("Display");
-        displayBTN1.setToolTipText("Press me to refresh the liked songs after searching");
-        displayBTN1.addActionListener(new java.awt.event.ActionListener() {
+        DisplayPlaylist1BTN.setText("Display");
+        DisplayPlaylist1BTN.setToolTipText("Press me to refresh the liked songs after searching");
+        DisplayPlaylist1BTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                displayBTN1ActionPerformed(evt);
+                DisplayPlaylist1BTNActionPerformed(evt);
             }
         });
 
-        shuffle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/shuffify.png"))); // NOI18N
-        shuffle.setToolTipText("Press me to shuffle the songs in your display");
-        shuffle.addActionListener(new java.awt.event.ActionListener() {
+        ShufflePlaylist1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/shuffify.png"))); // NOI18N
+        ShufflePlaylist1.setToolTipText("Press me to shuffle the songs in your display");
+        ShufflePlaylist1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                shuffleActionPerformed(evt);
+                ShufflePlaylist1ActionPerformed(evt);
             }
         });
 
-        addSongsBTN.setText("ADD");
-        addSongsBTN.setToolTipText("To add new songs press me ");
-        addSongsBTN.addActionListener(new java.awt.event.ActionListener() {
+        addSongsPlaylist1BTN.setText("ADD");
+        addSongsPlaylist1BTN.setToolTipText("To add new songs press me ");
+        addSongsPlaylist1BTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addSongsBTNActionPerformed(evt);
+                addSongsPlaylist1BTNActionPerformed(evt);
+            }
+        });
+
+        sizePlaylist1.setText("Size");
+        sizePlaylist1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sizePlaylist1ActionPerformed(evt);
             }
         });
 
@@ -224,15 +233,16 @@ public class PlaylistGUI extends javax.swing.JFrame {
                     .addGroup(PopRapPanelLayout.createSequentialGroup()
                         .addComponent(searchPlaylistOne, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(searchBTN1)
+                        .addComponent(SearchPlaylist1BTN)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(displayBTN1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(DisplayPlaylist1BTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(PopRapPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(deleteBTN1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(shuffle, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(addSongsBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(DeletePlaylist1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ShufflePlaylist1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(addSongsPlaylist1BTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(sizePlaylist1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         PopRapPanelLayout.setVerticalGroup(
@@ -241,20 +251,22 @@ public class PlaylistGUI extends javax.swing.JFrame {
                 .addComponent(HeaderPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(PopRapPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(searchBTN1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SearchPlaylist1BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(searchPlaylistOne, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(PopRapPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(deleteBTN1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addComponent(displayBTN1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)))
+                        .addComponent(DeletePlaylist1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addComponent(DisplayPlaylist1BTN, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addGroup(PopRapPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PopRapPanelLayout.createSequentialGroup()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PopRapPanelLayout.createSequentialGroup()
-                        .addComponent(addSongsBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(sizePlaylist1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(shuffle, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(addSongsPlaylist1BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(ShufflePlaylist1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(15, 15, 15))))
         );
 
@@ -346,19 +358,26 @@ public class PlaylistGUI extends javax.swing.JFrame {
             }
         });
 
-        addSongsBTN1.setText("ADD");
-        addSongsBTN1.setToolTipText("To add new songs press me ");
-        addSongsBTN1.addActionListener(new java.awt.event.ActionListener() {
+        addSongsPlaylist2BTN.setText("ADD");
+        addSongsPlaylist2BTN.setToolTipText("To add new songs press me ");
+        addSongsPlaylist2BTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addSongsBTN1ActionPerformed(evt);
+                addSongsPlaylist2BTNActionPerformed(evt);
             }
         });
 
-        shuffle1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/shuffify.png"))); // NOI18N
-        shuffle1.setToolTipText("Press to me to shuffle the songs in your display");
-        shuffle1.addActionListener(new java.awt.event.ActionListener() {
+        ShufflePlaylist2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/shuffify.png"))); // NOI18N
+        ShufflePlaylist2.setToolTipText("Press to me to shuffle the songs in your display");
+        ShufflePlaylist2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                shuffle1ActionPerformed(evt);
+                ShufflePlaylist2ActionPerformed(evt);
+            }
+        });
+
+        sizePlaylist2.setText("Size");
+        sizePlaylist2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sizePlaylist2ActionPerformed(evt);
             }
         });
 
@@ -380,8 +399,9 @@ public class PlaylistGUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(IndieRockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(deletePlaylist2BTN, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)
-                    .addComponent(addSongsBTN1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(shuffle1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(addSongsPlaylist2BTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ShufflePlaylist2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(sizePlaylist2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         IndieRockPanelLayout.setVerticalGroup(
@@ -399,9 +419,11 @@ public class PlaylistGUI extends javax.swing.JFrame {
                 .addGroup(IndieRockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, IndieRockPanelLayout.createSequentialGroup()
-                        .addComponent(addSongsBTN1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(sizePlaylist2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(shuffle1)))
+                        .addComponent(addSongsPlaylist2BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(ShufflePlaylist2)))
                 .addContainerGap())
         );
 
@@ -484,43 +506,55 @@ public class PlaylistGUI extends javax.swing.JFrame {
             load1.displayForward();
     }//GEN-LAST:event_displayPlaylist2BTNActionPerformed
 
-    private void searchBTN1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBTN1ActionPerformed
+    private void SearchPlaylist1BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchPlaylist1BTNActionPerformed
         // TODO add your handling code here:
         load.Search(searchPlaylistOne.getText());
         String songName = searchPlaylistOne.getText();
         load.displaySearch(songName);
-    }//GEN-LAST:event_searchBTN1ActionPerformed
+    }//GEN-LAST:event_SearchPlaylist1BTNActionPerformed
 
-    private void deleteBTN1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBTN1ActionPerformed
+    private void DeletePlaylist1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeletePlaylist1ActionPerformed
         // TODO add your handling code here:
          String songName = searchPlaylistOne.getText();
         load.remove(songName);
-    }//GEN-LAST:event_deleteBTN1ActionPerformed
+    }//GEN-LAST:event_DeletePlaylist1ActionPerformed
 
-    private void displayBTN1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_displayBTN1ActionPerformed
+    private void DisplayPlaylist1BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DisplayPlaylist1BTNActionPerformed
         // TODO add your handling code here:
         load.displayForward();
-    }//GEN-LAST:event_displayBTN1ActionPerformed
+    }//GEN-LAST:event_DisplayPlaylist1BTNActionPerformed
 
-    private void shuffleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shuffleActionPerformed
+    private void ShufflePlaylist1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShufflePlaylist1ActionPerformed
         // TODO add your handling code here:
         load.displayBackward();
-    }//GEN-LAST:event_shuffleActionPerformed
+    }//GEN-LAST:event_ShufflePlaylist1ActionPerformed
 
-    private void addSongsBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addSongsBTNActionPerformed
+    private void addSongsPlaylist1BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addSongsPlaylist1BTNActionPerformed
         // TODO add your handling code here:
         this.dispose();
-    }//GEN-LAST:event_addSongsBTNActionPerformed
+    }//GEN-LAST:event_addSongsPlaylist1BTNActionPerformed
 
-    private void shuffle1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shuffle1ActionPerformed
+    private void ShufflePlaylist2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShufflePlaylist2ActionPerformed
         // TODO add your handling code here:
         load1.displayBackward();
-    }//GEN-LAST:event_shuffle1ActionPerformed
+    }//GEN-LAST:event_ShufflePlaylist2ActionPerformed
 
-    private void addSongsBTN1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addSongsBTN1ActionPerformed
+    private void addSongsPlaylist2BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addSongsPlaylist2BTNActionPerformed
         // TODO add your handling code here:
         this.dispose();
-    }//GEN-LAST:event_addSongsBTN1ActionPerformed
+    }//GEN-LAST:event_addSongsPlaylist2BTNActionPerformed
+
+    private void sizePlaylist1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sizePlaylist1ActionPerformed
+        // TODO add your handling code here:
+        
+        load.displaySize();
+        
+    }//GEN-LAST:event_sizePlaylist1ActionPerformed
+
+    private void sizePlaylist2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sizePlaylist2ActionPerformed
+        // TODO add your handling code here:
+        load1.displaySize();
+    }//GEN-LAST:event_sizePlaylist2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -558,6 +592,8 @@ public class PlaylistGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton DeletePlaylist1;
+    private javax.swing.JButton DisplayPlaylist1BTN;
     private javax.swing.JPanel HeaderPane;
     private javax.swing.JPanel HeaderPane1;
     private javax.swing.JPanel HeaderPane2;
@@ -571,14 +607,15 @@ public class PlaylistGUI extends javax.swing.JFrame {
     private javax.swing.JLabel LikedSongsLabel1;
     private javax.swing.JLabel LikedSongsLabel2;
     private static javax.swing.JPanel PopRapPanel;
+    private javax.swing.JButton SearchPlaylist1BTN;
+    private javax.swing.JButton ShufflePlaylist1;
+    private javax.swing.JButton ShufflePlaylist2;
     private javax.swing.JLabel StringifyLogo;
-    private javax.swing.JButton addSongsBTN;
-    private javax.swing.JButton addSongsBTN1;
+    private javax.swing.JButton addSongsPlaylist1BTN;
+    private javax.swing.JButton addSongsPlaylist2BTN;
     private javax.swing.JPanel body;
     private javax.swing.JPanel border;
-    private javax.swing.JButton deleteBTN1;
     private javax.swing.JButton deletePlaylist2BTN;
-    private javax.swing.JButton displayBTN1;
     public static javax.swing.JTextArea displayPlaylist2;
     private javax.swing.JButton displayPlaylist2BTN;
     public static javax.swing.JTextArea displayPopSongs;
@@ -586,12 +623,11 @@ public class PlaylistGUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLayeredPane layeredHeadPane;
-    private javax.swing.JButton searchBTN1;
     public static javax.swing.JTextField searchPlaylist2;
     private javax.swing.JButton searchPlaylist2BTN;
     public static javax.swing.JTextField searchPlaylistOne;
-    private javax.swing.JButton shuffle;
-    private javax.swing.JButton shuffle1;
+    private javax.swing.JButton sizePlaylist1;
+    private javax.swing.JButton sizePlaylist2;
     private javax.swing.JTabbedPane tabbedPane;
     // End of variables declaration//GEN-END:variables
 }

@@ -19,8 +19,24 @@ public class IndieRockDDL implements PlaylistLinearInterface{
    @Override
     public int size()
     {
-        return size;
+        int count =0;
+        Node curr = head;
+        while(curr != null)
+        {
+            count++;
+            curr = curr.next;
+        }
+        return count;
     }
+    
+    @Override
+    public void displaySize()
+    {
+        System.out.println(size());
+    }
+    
+    
+    
     @Override
     public boolean isEmpty()
     {

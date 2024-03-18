@@ -12,6 +12,7 @@ public interface PlaylistLinearInterface {
     
     public boolean isEmpty();
     public int size();
+    public void displaySize();
     public void displayForward();
     public void displayBackward();
     public boolean remove(Object data);
