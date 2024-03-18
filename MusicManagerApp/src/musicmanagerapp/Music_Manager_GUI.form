@@ -78,7 +78,7 @@
                           <Group type="102" attributes="0">
                               <Component id="StringifyLogo" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="HeadingText" pref="388" max="32767" attributes="0"/>
+                              <Component id="HeadingText" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -394,6 +394,7 @@
                                   <Component id="deleteBTN" max="32767" attributes="0"/>
                                   <Component id="addToPlaylistBTN" alignment="1" max="32767" attributes="0"/>
                                   <Component id="playBTN" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="stopBTN" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -418,6 +419,8 @@
                                   <Group type="102" alignment="1" attributes="0">
                                       <Component id="playBTN" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="stopBTN" min="-2" pref="55" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                                       <Component id="deleteBTN" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -442,7 +445,7 @@
                                   <Component id="LikeLogo" min="-2" pref="67" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="LikedSongsLabel" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
+                                  <EmptySpace pref="25" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -568,9 +571,21 @@
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                           <Image iconType="3" name="/imgs/playify.png"/>
                         </Property>
+                        <Property name="toolTipText" type="java.lang.String" value="This will play and repeat through all of the songs that you added. There is a small 3 second delay until play functions "/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="playBTNActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="stopBTN">
+                      <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/imgs/stopify.png"/>
+                        </Property>
+                        <Property name="toolTipText" type="java.lang.String" value="This willstop the play button"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="stopBTNActionPerformed"/>
                       </Events>
                     </Component>
                   </SubComponents>

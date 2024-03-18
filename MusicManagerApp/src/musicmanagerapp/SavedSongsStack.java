@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
  *
  * @author dmoc2
  */
-public class SavedSongsStack implements SongStackInterface {
+public class SavedSongsStack implements SongStackInterface { //opem class
     
     ArrayList<SongSchema> playlist = new ArrayList<>(); //making an instance of the arraylist
     
@@ -198,27 +198,33 @@ public class SavedSongsStack implements SongStackInterface {
           
           @Override
           public void actionPerformed(ActionEvent e)
-          {
+          { //open action
               if(isEmpty())
-              {
-                  JOptionPane.showMessageDialog(null, "There is no music to play right now");
-              } else {
-                  Music_Manager_GUI.displayLikedSongsArea.setText("");
-                  Music_Manager_GUI.displayLikedSongsArea.append("Current Song that is Playing: \n "+playlist.get(index).getSongName());
+              {//open if 
+                  JOptionPane.showMessageDialog(null, "There is no music to play right now"); // tells the user there is no songs to be played 
+              } //close if  
+              else 
+              {//open else  
+                  Music_Manager_GUI.displayLikedSongsArea.setText(""); //resets the text so there is no over lapping 
+                  Music_Manager_GUI.displayLikedSongsArea.append("Current Song that is Playing: \n "+playlist.get(index).getSongName()); //this will display when the repeater is active 
                   index = (index +1)% playlist.size(); // this will increment through the playlist start from the index of 0
-              }
-          }
-    });
+              }//close else 
+          }//close action 
+    }); //end of timer functions 
     timer.start(); //will load the function of the play list.
-    }
+    }//end class 
     
     @Override
     public void stopFunction()
     {
         if(timer != null)
-        {
+        { //open if 
             timer.stop(); // this will stop the repeat functions
+        }//close if 
+        else 
+        {
+            System.out.println("There is no playing");
         }
-    }
+    }//close the stop function 
 
-}
+}//close class 

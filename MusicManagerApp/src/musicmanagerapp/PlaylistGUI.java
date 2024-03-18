@@ -173,7 +173,7 @@ public class PlaylistGUI extends javax.swing.JFrame {
 
         searchBTN1.setBackground(new java.awt.Color(102, 102, 102));
         searchBTN1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/searchIcon.png"))); // NOI18N
-        searchBTN1.setToolTipText("Enter into the searchterm field and press me");
+        searchBTN1.setToolTipText("Enter the song name into the search bar and press me ");
         searchBTN1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchBTN1ActionPerformed(evt);
@@ -198,6 +198,7 @@ public class PlaylistGUI extends javax.swing.JFrame {
         });
 
         shuffle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/shuffify.png"))); // NOI18N
+        shuffle.setToolTipText("Press me to shuffle the songs in your display");
         shuffle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 shuffleActionPerformed(evt);
@@ -321,7 +322,7 @@ public class PlaylistGUI extends javax.swing.JFrame {
 
         searchPlaylist2BTN.setBackground(new java.awt.Color(102, 102, 102));
         searchPlaylist2BTN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/searchIcon.png"))); // NOI18N
-        searchPlaylist2BTN.setToolTipText("Enter into the searchterm field and press me");
+        searchPlaylist2BTN.setToolTipText("Enter the songname into the search bar and press me ");
         searchPlaylist2BTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchPlaylist2BTNActionPerformed(evt);
@@ -338,7 +339,7 @@ public class PlaylistGUI extends javax.swing.JFrame {
         });
 
         displayPlaylist2BTN.setText("Display");
-        displayPlaylist2BTN.setToolTipText("Press me to refresh the liked songs after searching");
+        displayPlaylist2BTN.setToolTipText("Press me to see your songs anytime");
         displayPlaylist2BTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 displayPlaylist2BTNActionPerformed(evt);
@@ -354,6 +355,7 @@ public class PlaylistGUI extends javax.swing.JFrame {
         });
 
         shuffle1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/shuffify.png"))); // NOI18N
+        shuffle1.setToolTipText("Press to me to shuffle the songs in your display");
         shuffle1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 shuffle1ActionPerformed(evt);
