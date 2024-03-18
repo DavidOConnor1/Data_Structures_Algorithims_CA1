@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
  */
 public class SavedSongsStack implements SongStackInterface {
     ArrayList<SongSchema> playlist = new ArrayList<>();
-
+    private boolean methodCalled = false;
    
     public static SavedSongsStack instance;
 
@@ -25,17 +25,21 @@ public class SavedSongsStack implements SongStackInterface {
 
     public SavedSongsStack() {
     }
-    
-   
-  
 
-    
+    public ArrayList<SongSchema> getPlaylist() {
+        return playlist;
+    }
+      
     @Override
     public boolean isEmpty()
     {
         return playlist.isEmpty();
     }
     
+    public boolean isMethodCalled()
+    {
+        return methodCalled;
+    }
    
     
     @Override
@@ -146,8 +150,24 @@ public class SavedSongsStack implements SongStackInterface {
     @Override
     public void transfer()
     {
-        Node head = PopRapDDL.convertArr2Dll(playlist);
-        PopRapDDL.print(head);
+        if (isEmpty()) {
+            JOptionPane.showMessageDialog(null, "There is no songs to transfer");
+            
+        }
+        
+        int type = Integer.parseInt(JOptionPane.showInputDialog(null,"Press 1 to Add to Playlist 1,\nPress 2 to add to playlist 2"));
+        
+        
+        if(type == 1){
+            Node head = PopRapDDL.convertArr2Dll(playlist);
+            remove();
+            PopRapDDL.print(head);
+        } else if (type ==2)
+        {
+            Node head = IndieRockDDL.convertArr2Dll(playlist);
+            remove();
+            IndieRockDDL.print(head);
+        }
     }
 
 }

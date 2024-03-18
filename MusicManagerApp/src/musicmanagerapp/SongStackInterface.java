@@ -4,6 +4,8 @@
  */
 package musicmanagerapp;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author dmoc2
@@ -16,9 +18,10 @@ public interface SongStackInterface {
     public Object remove();
     
     public boolean isEmpty();
-    
+    public boolean isMethodCalled();
+     public ArrayList<SongSchema> getPlaylist();
     //public int size();
     public String displayPlaylist();
     public void search();
-    public void transfer();
+    public  void transfer();
 }

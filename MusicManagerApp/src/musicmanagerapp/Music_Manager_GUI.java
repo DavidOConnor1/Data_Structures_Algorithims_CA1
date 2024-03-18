@@ -19,14 +19,14 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
     
     SongSchema newSong;
     
-   
+       PopRapDDL  loadDDL1;
        SongStackInterface loadFunctions;
        
     public Music_Manager_GUI() {
         initComponents();
         newSong = new SongSchema();
         loadFunctions = new SavedSongsStack();
-        
+         loadDDL1 = new PopRapDDL();
     }
     
 
@@ -418,7 +418,13 @@ public class Music_Manager_GUI extends javax.swing.JFrame {
 
     private void addToPlaylistBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToPlaylistBTNActionPerformed
         // TODO add your handling code here:
+            
+       
+        
+       
+            System.out.println("loading transfer");
             loadFunctions.transfer();
+          
     }//GEN-LAST:event_addToPlaylistBTNActionPerformed
 
     private void searchBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBTNActionPerformed

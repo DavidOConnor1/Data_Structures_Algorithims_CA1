@@ -21,22 +21,42 @@ public class PopRapDDL {
     
     public static Node convertArr2Dll(ArrayList<SongSchema> arr)
     {
-        if(arr.isEmpty())
-        {
-            JOptionPane.showMessageDialog(null, "there is nothing to convert");
-            return null;
-        }
+        head = new Node(arr.get(0),null, null );
+        Node prev = head;
         
-        if(head != null){
-            return head;
+        for (int i = 1; i < arr.size(); i++) {
+            Node temp = new Node(arr.get(i), null, prev);
+            prev.next = temp;
+            prev = temp;
         }
-        head = new Node(arr.get(0), null,null);
         return head;
     }
     
-    public static void addNewDataLast(SongSchema song)
+    /*
+        The method below is to detect all the new data that         is being transfered from the arraylist from the other classses and then placing that new data to the back of the DDL. This makes sure that the head is not over written or to cause any confusion for the program.
+    
+    */
+    
+    
+    public void addNewDataLast(SongSchema song)
     {
+      
+        if(head == null){ //checking if the head is null
+           
+            head = new Node(song, null, null); //intializing the head node
+            return;
+        }
         
+       
+            System.out.println("loading add to last!");
+       Node current = head;
+        while(current != null)
+        {
+            current = current.next;
+        }
+        Node newNode = new Node(song, null, current);
+        current.next = newNode;
+       
     }
             
     
@@ -67,7 +87,7 @@ public class PopRapDDL {
         Node currentNode = head;
 
         while (currentNode != null) {
-            System.out.println(currentNode.data+"");
+            System.out.println(currentNode.data.songDetails()+"");
             currentNode = currentNode.next;
         }
 
