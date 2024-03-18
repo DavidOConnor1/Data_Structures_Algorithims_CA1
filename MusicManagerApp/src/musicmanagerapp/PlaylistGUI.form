@@ -413,7 +413,7 @@
                             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                               <Image iconType="3" name="/imgs/binIcon.png"/>
                             </Property>
-                            <Property name="toolTipText" type="java.lang.String" value="Press me to delete the most recent song"/>
+                            <Property name="toolTipText" type="java.lang.String" value="Removes the recently added song!"/>
                           </Properties>
                           <Events>
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="deleteBTN1ActionPerformed"/>
@@ -471,18 +471,19 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="searchTF" min="-2" pref="192" max="-2" attributes="0"/>
+                                      <Component id="searchPlaylist2" min="-2" pref="192" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="searchBTN" min="-2" max="-2" attributes="0"/>
+                                      <Component id="searchPlaylist2BTN" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="displayBTN" max="32767" attributes="0"/>
+                                      <Component id="displayPlaylist2BTN" max="32767" attributes="0"/>
                                   </Group>
                                   <Component id="jScrollPane1" alignment="0" min="-2" pref="385" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="deleteBTN" max="32767" attributes="0"/>
-                                  <Component id="shuffleBTN" max="32767" attributes="0"/>
+                                  <Component id="deletePlaylist2BTN" pref="79" max="32767" attributes="0"/>
+                                  <Component id="addSongsBTN1" max="32767" attributes="0"/>
+                                  <Component id="shuffle1" alignment="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -494,17 +495,21 @@
                               <Component id="HeaderPane1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="searchBTN" alignment="0" min="-2" pref="45" max="-2" attributes="0"/>
-                                  <Component id="searchTF" alignment="0" min="-2" pref="45" max="-2" attributes="0"/>
+                                  <Component id="searchPlaylist2BTN" alignment="0" min="-2" pref="45" max="-2" attributes="0"/>
+                                  <Component id="searchPlaylist2" alignment="0" min="-2" pref="45" max="-2" attributes="0"/>
                                   <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="deleteBTN" alignment="0" pref="0" max="32767" attributes="0"/>
-                                      <Component id="displayBTN" alignment="0" pref="44" max="32767" attributes="0"/>
+                                      <Component id="deletePlaylist2BTN" alignment="0" pref="0" max="32767" attributes="0"/>
+                                      <Component id="displayPlaylist2BTN" alignment="0" pref="44" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace pref="45" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jScrollPane1" alignment="1" min="-2" pref="269" max="-2" attributes="0"/>
-                                  <Component id="shuffleBTN" alignment="1" min="-2" pref="50" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="addSongsBTN1" min="-2" pref="55" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="shuffle1" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -575,7 +580,7 @@
 
                       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                       <SubComponents>
-                        <Component class="javax.swing.JTextArea" name="displayLikedSongsArea">
+                        <Component class="javax.swing.JTextArea" name="displayPlaylist2">
                           <Properties>
                             <Property name="columns" type="int" value="20"/>
                             <Property name="rows" type="int" value="5"/>
@@ -589,7 +594,7 @@
                         </Component>
                       </SubComponents>
                     </Container>
-                    <Component class="javax.swing.JTextField" name="searchTF">
+                    <Component class="javax.swing.JTextField" name="searchPlaylist2">
                       <Properties>
                         <Property name="toolTipText" type="java.lang.String" value="Enter the song name to complete the search"/>
                       </Properties>
@@ -597,7 +602,7 @@
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                       </AuxValues>
                     </Component>
-                    <Component class="javax.swing.JButton" name="searchBTN">
+                    <Component class="javax.swing.JButton" name="searchPlaylist2BTN">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="66" green="66" red="66" type="rgb"/>
@@ -608,10 +613,10 @@
                         <Property name="toolTipText" type="java.lang.String" value="Enter into the searchterm field and press me"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchBTNActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchPlaylist2BTNActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="deleteBTN">
+                    <Component class="javax.swing.JButton" name="deletePlaylist2BTN">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="66" green="66" red="ff" type="rgb"/>
@@ -622,22 +627,36 @@
                         <Property name="toolTipText" type="java.lang.String" value="Press me to delete the most recent song"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="deleteBTNActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="deletePlaylist2BTNActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="displayBTN">
+                    <Component class="javax.swing.JButton" name="displayPlaylist2BTN">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Display"/>
                         <Property name="toolTipText" type="java.lang.String" value="Press me to refresh the liked songs after searching"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="displayBTNActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="displayPlaylist2BTNActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="shuffleBTN">
+                    <Component class="javax.swing.JButton" name="addSongsBTN1">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Shuffle"/>
+                        <Property name="text" type="java.lang.String" value="ADD"/>
+                        <Property name="toolTipText" type="java.lang.String" value="To add new songs press me "/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addSongsBTN1ActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="shuffle1">
+                      <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/imgs/shuffify.png"/>
+                        </Property>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="shuffle1ActionPerformed"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>

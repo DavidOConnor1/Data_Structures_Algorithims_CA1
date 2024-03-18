@@ -14,10 +14,12 @@ public class PlaylistGUI extends javax.swing.JFrame {
      * Creates new form PlaylistGUI
      */
     
-    PopRapDDL load;
+    PlaylistLinearInterface load;
+     PlaylistLinearInterface load1;
     public PlaylistGUI() {
         initComponents();
         load = new PopRapDDL();
+        load1 = new IndieRockDDL();
     }
 
     /**
@@ -55,12 +57,13 @@ public class PlaylistGUI extends javax.swing.JFrame {
         LikeLogo = new javax.swing.JLabel();
         LikedSongsLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        displayLikedSongsArea = new javax.swing.JTextArea();
-        searchTF = new javax.swing.JTextField();
-        searchBTN = new javax.swing.JButton();
-        deleteBTN = new javax.swing.JButton();
-        displayBTN = new javax.swing.JButton();
-        shuffleBTN = new javax.swing.JButton();
+        displayPlaylist2 = new javax.swing.JTextArea();
+        searchPlaylist2 = new javax.swing.JTextField();
+        searchPlaylist2BTN = new javax.swing.JButton();
+        deletePlaylist2BTN = new javax.swing.JButton();
+        displayPlaylist2BTN = new javax.swing.JButton();
+        addSongsBTN1 = new javax.swing.JButton();
+        shuffle1 = new javax.swing.JButton();
         StringifyLogo = new javax.swing.JLabel();
         HeadingText = new javax.swing.JLabel();
 
@@ -179,7 +182,7 @@ public class PlaylistGUI extends javax.swing.JFrame {
 
         deleteBTN1.setBackground(new java.awt.Color(255, 102, 102));
         deleteBTN1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/binIcon.png"))); // NOI18N
-        deleteBTN1.setToolTipText("Press me to delete the most recent song");
+        deleteBTN1.setToolTipText("Removes the recently added song!");
         deleteBTN1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteBTN1ActionPerformed(evt);
@@ -309,40 +312,53 @@ public class PlaylistGUI extends javax.swing.JFrame {
                     .addComponent(LikedSongsLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
-        displayLikedSongsArea.setColumns(20);
-        displayLikedSongsArea.setRows(5);
-        displayLikedSongsArea.setText("Title \t Artist \t Album \t Genre \n");
-        jScrollPane1.setViewportView(displayLikedSongsArea);
+        displayPlaylist2.setColumns(20);
+        displayPlaylist2.setRows(5);
+        displayPlaylist2.setText("Title \t Artist \t Album \t Genre \n");
+        jScrollPane1.setViewportView(displayPlaylist2);
 
-        searchTF.setToolTipText("Enter the song name to complete the search");
+        searchPlaylist2.setToolTipText("Enter the song name to complete the search");
 
-        searchBTN.setBackground(new java.awt.Color(102, 102, 102));
-        searchBTN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/searchIcon.png"))); // NOI18N
-        searchBTN.setToolTipText("Enter into the searchterm field and press me");
-        searchBTN.addActionListener(new java.awt.event.ActionListener() {
+        searchPlaylist2BTN.setBackground(new java.awt.Color(102, 102, 102));
+        searchPlaylist2BTN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/searchIcon.png"))); // NOI18N
+        searchPlaylist2BTN.setToolTipText("Enter into the searchterm field and press me");
+        searchPlaylist2BTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchBTNActionPerformed(evt);
+                searchPlaylist2BTNActionPerformed(evt);
             }
         });
 
-        deleteBTN.setBackground(new java.awt.Color(255, 102, 102));
-        deleteBTN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/binIcon.png"))); // NOI18N
-        deleteBTN.setToolTipText("Press me to delete the most recent song");
-        deleteBTN.addActionListener(new java.awt.event.ActionListener() {
+        deletePlaylist2BTN.setBackground(new java.awt.Color(255, 102, 102));
+        deletePlaylist2BTN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/binIcon.png"))); // NOI18N
+        deletePlaylist2BTN.setToolTipText("Press me to delete the most recent song");
+        deletePlaylist2BTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteBTNActionPerformed(evt);
+                deletePlaylist2BTNActionPerformed(evt);
             }
         });
 
-        displayBTN.setText("Display");
-        displayBTN.setToolTipText("Press me to refresh the liked songs after searching");
-        displayBTN.addActionListener(new java.awt.event.ActionListener() {
+        displayPlaylist2BTN.setText("Display");
+        displayPlaylist2BTN.setToolTipText("Press me to refresh the liked songs after searching");
+        displayPlaylist2BTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                displayBTNActionPerformed(evt);
+                displayPlaylist2BTNActionPerformed(evt);
             }
         });
 
-        shuffleBTN.setText("Shuffle");
+        addSongsBTN1.setText("ADD");
+        addSongsBTN1.setToolTipText("To add new songs press me ");
+        addSongsBTN1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addSongsBTN1ActionPerformed(evt);
+            }
+        });
+
+        shuffle1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/shuffify.png"))); // NOI18N
+        shuffle1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                shuffle1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout IndieRockPanelLayout = new javax.swing.GroupLayout(IndieRockPanel);
         IndieRockPanel.setLayout(IndieRockPanelLayout);
@@ -353,16 +369,17 @@ public class PlaylistGUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(IndieRockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(IndieRockPanelLayout.createSequentialGroup()
-                        .addComponent(searchTF, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(searchPlaylist2, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(searchBTN)
+                        .addComponent(searchPlaylist2BTN)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(displayBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(displayPlaylist2BTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(IndieRockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(deleteBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(shuffleBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(deletePlaylist2BTN, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)
+                    .addComponent(addSongsBTN1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(shuffle1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
         );
         IndieRockPanelLayout.setVerticalGroup(
@@ -371,15 +388,18 @@ public class PlaylistGUI extends javax.swing.JFrame {
                 .addComponent(HeaderPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(IndieRockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(searchBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(searchTF, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchPlaylist2BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchPlaylist2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(IndieRockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(deleteBTN, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addComponent(displayBTN, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)))
+                        .addComponent(deletePlaylist2BTN, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addComponent(displayPlaylist2BTN, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addGroup(IndieRockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(shuffleBTN, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, IndieRockPanelLayout.createSequentialGroup()
+                        .addComponent(addSongsBTN1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(shuffle1)))
                 .addContainerGap())
         );
 
@@ -447,19 +467,20 @@ public class PlaylistGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void searchBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBTNActionPerformed
+    private void searchPlaylist2BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchPlaylist2BTNActionPerformed
         // TODO add your handling code here:
-        
-    }//GEN-LAST:event_searchBTNActionPerformed
+        String songName = searchPlaylist2.getText();
+        load1.Search(songName);
+    }//GEN-LAST:event_searchPlaylist2BTNActionPerformed
 
-    private void deleteBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBTNActionPerformed
+    private void deletePlaylist2BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletePlaylist2BTNActionPerformed
         // TODO add your handling code here:
-       
-    }//GEN-LAST:event_deleteBTNActionPerformed
+       load1.remove(evt);
+    }//GEN-LAST:event_deletePlaylist2BTNActionPerformed
 
-    private void displayBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_displayBTNActionPerformed
-       
-    }//GEN-LAST:event_displayBTNActionPerformed
+    private void displayPlaylist2BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_displayPlaylist2BTNActionPerformed
+            load1.displayForward();
+    }//GEN-LAST:event_displayPlaylist2BTNActionPerformed
 
     private void searchBTN1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBTN1ActionPerformed
         // TODO add your handling code here:
@@ -470,7 +491,8 @@ public class PlaylistGUI extends javax.swing.JFrame {
 
     private void deleteBTN1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBTN1ActionPerformed
         // TODO add your handling code here:
-        load.remove(load.head);
+         String songName = searchPlaylistOne.getText();
+        load.remove(songName);
     }//GEN-LAST:event_deleteBTN1ActionPerformed
 
     private void displayBTN1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_displayBTN1ActionPerformed
@@ -487,6 +509,16 @@ public class PlaylistGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_addSongsBTNActionPerformed
+
+    private void shuffle1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shuffle1ActionPerformed
+        // TODO add your handling code here:
+        load1.displayBackward();
+    }//GEN-LAST:event_shuffle1ActionPerformed
+
+    private void addSongsBTN1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addSongsBTN1ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_addSongsBTN1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -539,24 +571,25 @@ public class PlaylistGUI extends javax.swing.JFrame {
     private static javax.swing.JPanel PopRapPanel;
     private javax.swing.JLabel StringifyLogo;
     private javax.swing.JButton addSongsBTN;
+    private javax.swing.JButton addSongsBTN1;
     private javax.swing.JPanel body;
     private javax.swing.JPanel border;
-    private javax.swing.JButton deleteBTN;
     private javax.swing.JButton deleteBTN1;
-    private javax.swing.JButton displayBTN;
+    private javax.swing.JButton deletePlaylist2BTN;
     private javax.swing.JButton displayBTN1;
-    public static javax.swing.JTextArea displayLikedSongsArea;
+    public static javax.swing.JTextArea displayPlaylist2;
+    private javax.swing.JButton displayPlaylist2BTN;
     public static javax.swing.JTextArea displayPopSongs;
     private javax.swing.JPanel homePanel;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLayeredPane layeredHeadPane;
-    private javax.swing.JButton searchBTN;
     private javax.swing.JButton searchBTN1;
+    public static javax.swing.JTextField searchPlaylist2;
+    private javax.swing.JButton searchPlaylist2BTN;
     public static javax.swing.JTextField searchPlaylistOne;
-    public static javax.swing.JTextField searchTF;
     private javax.swing.JButton shuffle;
-    private javax.swing.JButton shuffleBTN;
+    private javax.swing.JButton shuffle1;
     private javax.swing.JTabbedPane tabbedPane;
     // End of variables declaration//GEN-END:variables
 }

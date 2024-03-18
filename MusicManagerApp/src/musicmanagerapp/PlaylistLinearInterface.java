@@ -12,10 +12,12 @@ public interface PlaylistLinearInterface {
     
     public boolean isEmpty();
     public int size();
- public void addFirst(Object data);
-    public void addLast(Object data);
+    public void displayForward();
+    public void displayBackward();
     public boolean remove(Object data);
-    public void displayList();
+    public Node Search(String songName);
+    public void displaySearch(String songName);
+  
    
     
 }

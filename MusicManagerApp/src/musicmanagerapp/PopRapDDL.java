@@ -6,19 +6,27 @@ package musicmanagerapp;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import musicmanagerapp.PlaylistGUI;
+
 
 /**
  *
  * @author dmoc2
  */
-public class PopRapDDL {
+public class PopRapDDL implements PlaylistLinearInterface{
     
-    int size;
-   static Node head, tail;
+   static  int size;
+   public static Node head, tail;
     
-    
-    
+      @Override
+    public int size()
+    {
+        return size;
+    }
+      @Override
+    public boolean isEmpty()
+    {
+         return size == 0;
+    }
     
     public static Node convertArr2Dll(ArrayList<SongSchema> arr)
     {
@@ -30,54 +38,26 @@ public class PopRapDDL {
             prev.next = temp;
             prev = temp;
         }
+        size++;
         return head;
     }
     
-    /*
-        The method below is to detect all the new data that         is being transfered from the arraylist from the other classses and then placing that new data to the back of the DDL. This makes sure that the head is not over written or to cause any confusion for the program.
-    
-    */
     
     
-    public void addNewDataLast(SongSchema song)
-    {
-      
-        if(head == null){ //checking if the head is null
-           
-            head = new Node(song, null, null); //intializing the head node
-            return;
-        }
-        
-       
-            System.out.println("loading add to last!");
-       Node current = head;
-        while(current != null)
-        {
-            current = current.next;
-        }
-        Node newNode = new Node(song, null, current);
-        current.next = newNode;
-       
-    }
-            
-    
-    
-    
+  
     
     public static void print(Node head)
     {
         while(head != null)
         {
+            System.out.println("The size of the ddl is: "+size);
             System.out.println(head.data.songDetails()+"");
             head = head.next;
         }
     }
     
-    public boolean isEmpty()
-    {
-        return size ==0;
-    }
     
+      @Override
      public void displayForward()
  {
     if(head == null)
@@ -98,7 +78,7 @@ public class PopRapDDL {
 
     }
  }
-
+  @Override
  public void displayBackward()
 {
     if (head == null) {
@@ -126,11 +106,11 @@ public class PopRapDDL {
 
     }
 }
-
+  @Override
 public boolean remove(Object data)
 {
     if (head == null) {
-        JOptionPane.showMessageDialog(null, "There is no songs to remove");
+        JOptionPane.showMessageDialog(null, "You need to enter the song name into the search bar \nTo remove music from the playlist!");
         return false;
     }
     if (head.data == data) {
@@ -168,7 +148,7 @@ public boolean remove(Object data)
 return false;
 }
     
-
+  @Override
     public Node Search(String songName)
     {
         Node currNode = head;
@@ -185,7 +165,7 @@ return false;
         System.out.println("song could not be found");
         return null;
     }
-
+  @Override
     public void displaySearch(String songName)
     {
         Node discovered = Search(songName);
