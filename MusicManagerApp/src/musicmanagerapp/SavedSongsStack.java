@@ -59,7 +59,7 @@ public class SavedSongsStack implements SongStackInterface {
         
      
       if(!playlist.contains(newSong)){
-          playlist.add(newSong);
+          playlist.add(0,newSong);
          
           System.out.println("added song to playlist!");
           System.out.println(displayPlaylist());
