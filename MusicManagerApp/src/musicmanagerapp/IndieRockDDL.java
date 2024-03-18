@@ -81,7 +81,7 @@ public class IndieRockDDL implements PlaylistLinearInterface
         System.out.println("List is empty"); //it can't display anything if there is nothing to display
     } else {
         System.out.println("Forward travesal"); //tells the order the data is being presented 
-        PlaylistGUI.displayPlaylist2.setText("# \t Name \t Artist \t Album \t Genre \n"); //sets the top of the display
+        PlaylistGUI.displayPlaylist2.setText("Name \t Artist \t Album \t Genre \n"); //sets the top of the display
         
         Node currentNode = head; //setting the current node as head
 
@@ -90,7 +90,7 @@ public class IndieRockDDL implements PlaylistLinearInterface
           
             
     
-            PlaylistGUI.displayPlaylist2.append(size()+"\t"+currentNode.data.songDetails()+"");//will display the size of the ddl while showing the song details. the size works as a index 
+            PlaylistGUI.displayPlaylist2.append(currentNode.data.songDetails()+"");//will display the size of the ddl while showing the song details. 
             currentNode = currentNode.next; //loops onto the next node 
         } //close 
 
@@ -106,7 +106,7 @@ public class IndieRockDDL implements PlaylistLinearInterface
     } else{
         System.out.println("backwards travesal");//tells the order the data is being presented 
         PlaylistGUI.displayPlaylist2.setText("");
-        PlaylistGUI.displayPlaylist2.setText("# \t Name \t Artist \t Album \t Genre \n"); //sets the top of the display
+        PlaylistGUI.displayPlaylist2.setText("Name \t Artist \t Album \t Genre \n"); //sets the top of the display
         Node currNode = head;//initialize the current node 
 
         while (currNode.next != null) {
@@ -118,7 +118,7 @@ public class IndieRockDDL implements PlaylistLinearInterface
         //travesing backwards from the last node to the head 
         while(currNode != null)
         { //open while
-            PlaylistGUI.displayPlaylist2.append(size()+"\t"+currNode.data.songDetails());//will display the size of the ddl while showing the song details. the size works as a index 
+            PlaylistGUI.displayPlaylist2.append(currNode.data.songDetails());//will display the size of the ddl while showing the song details. the size works as a index 
             
             currNode = currNode.back; //will loop backwards through the nodes
         }//end while 
