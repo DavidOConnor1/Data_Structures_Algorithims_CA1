@@ -8,7 +8,7 @@ package com.mycompany.threadingdavey;
  *
  * @author dmoc2
  */
-public class ThatThreadTask5 {
+public class ThatThreadTask4 {
     
     public static void main(String[] args)
     {
